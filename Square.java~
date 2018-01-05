@@ -5,9 +5,4 @@ public abstract class Square{
 	who = x;
     }
 
-    public int getWho(){
-	return who;
-    }
-
-    public abstract getPiece(){
-	
+    
