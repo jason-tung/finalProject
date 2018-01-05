@@ -9,9 +9,9 @@ public abstract class Square{
 	return who;
     }
 
-    abstract Chesspiece getPiece();
+    abstract Chesspiece getChesspiece();
 
-    abstract boolean hasPiece();
+    abstract boolean hasChesspiece();
 
     abstract String toString();
 }
