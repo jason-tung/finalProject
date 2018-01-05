@@ -1,6 +1,6 @@
 # B I G   B O Y   G U I   C H E S S
 
-''i got the idea and used concepts from a netlogo project i saw at the dojo. the main principle is having "patches" with unique "who" numbers identifying each of them and what piece (if any) is on the "patch."''
+'' i got the idea and used concepts from a netlogo project i saw at the dojo. the main principle is having "patches" with unique "who" numbers identifying each of them and what piece (if any) is on the "patch." ''
 
 ## Team Members                                                   
 Jason Tung                                                     
