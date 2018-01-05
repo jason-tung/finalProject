@@ -1,0 +1,88 @@
+# B I G   B O Y   G U I   C H E S S
+
+''i got the idea and used concepts from a netlogo project i saw at the dojo. the main principle is having "patches" with unique "who" numbers identifying each of them and what piece (if any) is on the "patch."''
+
+## Team Members                                                   
+Jason Tung                                                     
+
+## Team Name
+Dynamic Duo
+
+## Project Title
+Big Boy GUI Chess
+
+## I. Project Idea
+ - A turn based strategy based on the a real life game which you may or may not be familiar with -- chess. 
+
+ - Start with a setup board of chess pieces and play a game of chess with or without the timer. 
+
+ - Players take turns moving pieces until either player is in checkmate.
+
+ - Each player has 16 pieces: 1 king, 1 queen, 2 rooks, 2 bishops, 2 knights, and 8 pawns.
+ - Pieces move in different ways depending on their types.
+ - The ultimate goal is to trap the enemy’s king piece such that it is in check and there are no moves it can make without it being captured. 
+ - Check: when a king piece is going to be captured next turn if there is no interception, or the king does not move. 
+ - Pieces can move and capture other pieces.
+ - There is a set of special moves such as en passant, castling, and promotion.
+
+## II. Critical Features
+### 1. Distinct Checkerboard Squares
+ - The basis for placement and movement of pieces
+
+### 2. Chess Pieces
+ - Movement
+ - Capture -- Pieces only capturing opposite color pieces
+ - Non-standard movement (en passant, castling, promotion)
+ - Appears on the GUI
+
+### 3. Check & Checkmate
+ - Figure out if a player is in check or checkmate (The hardest part )
+
+### 4. Turns
+ - Each player takes a turn
+
+### 5. Win, Lose, Stalemate
+ - Win/Lose is checkmate
+ - Stalemate for when the checked player has no legal moves
+
+### 6. GUI Implementation
+ - Puts the chess game onto GUI
+ 
+## III. To Be Added Later Features
+ - Nice looking pieces
+ - Selecting a piece will display all possible paths it can take
+ - Timer
+ - AI (HARD)
+ - Animations
+ - Move log
+
+## IV. Development stages
+ - Make a board in GUI
+ - Make ugly looking pieces
+ - Game class which store pieces and their coordinates (probably a hash map)
+ - Make abstract class chessPiece
+ - Write child classes for pieces
+ - Finish pawns
+ - Implement pawns into GUI
+ - Setup which puts the pieces onto the board (just the pawns for now)
+ - Write the rest of the pieces’ movement
+ - GUI Implementation
+ - Write capture for pieces
+ - Implement into GUI and test
+ - Write special moves 
+ - Implement into GUI and test
+ - Write,  implement, test check
+ - Write,  implement, test checkmate
+ - Write,  implement, test stalemate
+ 
+**MINIMUM FUNCTIONALITY ACHIEVED**
+
+ - Add a timer for turns
+ - Log moves on the side of the GUI
+ - Make pieces look nice
+ - Display possible paths
+ - Add animations
+ - Write a (bad) AI
+
+## What I'm Up To
+ - Making tile class
