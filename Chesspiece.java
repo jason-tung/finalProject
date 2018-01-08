@@ -1,5 +1,12 @@
 public abstract class Chesspiece{
 
-    abstract
+    public Chesspiece(int where){
+    }
+
+    abstract boolean checkmove(int loc);
+
+    abstract void moveTo(int loc);
+}
+
 	
     

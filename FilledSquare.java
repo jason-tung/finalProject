@@ -15,6 +15,6 @@ public class FilledSquare extends Square{
     }
 
     public String toString(){
-	return "Square " + who + "\nChesspiece: " + chesspieceHere;
+	return "Square " + location + "\nChesspiece: " + chesspieceHere;
     }
 }

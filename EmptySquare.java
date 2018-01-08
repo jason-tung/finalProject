@@ -9,6 +9,6 @@ public class EmptySquare extends Square{
     }
 
     public String toString(){
-	return "Square " + who + "\nChesspiece: None";
+	return "Square " + location + "\nChesspiece: None";
     }
 }

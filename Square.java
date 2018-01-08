@@ -1,12 +1,12 @@
 public abstract class Square{
-    private int who;
+    private int location;
 
     public Square(int x){
-	who = x;
+	location = x;
     }
 
-    public int getWho(){
-	return who;
+    public int getLocation(){
+	return location;
     }
 
     abstract Chesspiece getChesspiece();
