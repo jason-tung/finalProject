@@ -87,3 +87,4 @@ Big Boy GUI Chess
 
 ## What I'm Up To
  - Making tile class
+ - Writing chesspiece abstract class
