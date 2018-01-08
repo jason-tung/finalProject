@@ -1,6 +1,6 @@
 public abstract class Chesspiece{
 
-    public Chesspiece(int where){
+    public Chesspiece(){
     }
 
     abstract boolean checkmove(int loc);
