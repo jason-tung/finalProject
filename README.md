@@ -58,11 +58,12 @@ Big Boy GUI Chess
 
 ## IV. Development stages
  - Make a board in GUI
- - Make ugly looking pieces
- - Game class which store pieces and their coordinates (probably a hash map)
+ - Make ugly looking pieces **moved to later stage**
+ - ~~Game class which store pieces and their coordinates (probably a hash map)~~ The squares will remember the pieces' locations
  - Make abstract class chessPiece
  - Write child classes for pieces
  - Finish pawns
+ - make ugly looking pawns **moved from earlier stage**
  - Implement pawns into GUI
  - Setup which puts the pieces onto the board (just the pawns for now)
  - Write the rest of the pieces’ movement
@@ -86,4 +87,3 @@ Big Boy GUI Chess
 
 ## What I'm Up To
  - Making tile class
- - Starting to write Chesspiece
