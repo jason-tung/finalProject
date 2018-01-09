@@ -4,4 +4,11 @@ public class Rook extends Chesspiece{
 	super(loc, color);
     }
 
+    public String toString(){
+	return "Rook@" + getLocation();
+    }
+
+    public int[] possibleMoves(){
+	
+    }
 }

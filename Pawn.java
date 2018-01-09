@@ -7,5 +7,8 @@ public class Pawn extends Chesspiece{
     public String toString(){
 	return "Pawn@" + getLocation();
     }
-    
+
+    public int[] possibleMoves(){
+	
+    }
 }
