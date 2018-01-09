@@ -1,3 +1,4 @@
+
 public abstract class Chesspiece{
 
     private final int location;

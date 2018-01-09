@@ -1,3 +1,5 @@
+package squares;
+
 public abstract class Square{
     private int location;
 
