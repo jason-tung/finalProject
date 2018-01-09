@@ -57,33 +57,34 @@ Big Boy GUI Chess
  - Move log
 
 ## IV. Development stages
- - [ ] Make a board in GUI
- - Make ugly looking pieces **moved to later stage**
- - ~~Game class which store pieces and their coordinates (probably a hash map or super array)~~ The squares will remember the pieces' locations
- - Make abstract class chessPiece
- - Write child classes for pieces
- - Finish pawns
- - make ugly looking pawns **moved from earlier stage**
- - Implement pawns into GUI
- - Setup which puts the pieces onto the board (just the pawns for now)
- - Write the rest of the pieces’ movement
- - GUI Implementation
- - Write capture for pieces
- - Implement into GUI and test
- - Write special moves 
- - Implement into GUI and test
- - Write,  implement, test check
- - Write,  implement, test checkmate
- - Write,  implement, test stalemate
+ - [x] Make a board
+ - [ ] Move board to GUI
+ - [ ] Make ugly looking pieces **moved to later stage**
+ - [x] ~~Game class which store pieces and their coordinates (probably a hash map or super array)~~ The squares will remember the pieces' locations
+ - [x] Make abstract class chessPiece
+ - [ ] Write child classes for pieces
+ - [ ] Finish pawns
+ - [ ] make ugly looking pawns **moved from earlier stage**
+ - [ ] Implement pawns into GUI
+ - [ ] Setup which puts the pieces onto the board (just the pawns for now)
+ - [ ] Write the rest of the pieces’ movement
+ - [ ] GUI Implementation
+ - [ ] Write capture for pieces
+ - [ ] Implement into GUI and test
+ - [ ] Write special moves 
+ - [ ] Implement into GUI and test
+ - [ ] Write,  implement, test check
+ - [ ] Write,  implement, test checkmate
+ - [ ] Write,  implement, test stalemate
  
 **MINIMUM FUNCTIONALITY ACHIEVED**
 
- - Add a timer for turns
- - Log moves on the side of the GUI
- - Make pieces look nice
- - Display possible paths
- - Add animations
- - Write a (bad) AI
+ - [ ] Add a timer for turns
+ - [ ] Log moves on the side of the GUI
+ - [ ] Make pieces look nice
+ - [ ] Display possible paths
+ - [ ] Add animations
+ - [ ] Write a (bad) AI
 
 ## What I'm Up To
  - Making tile class
