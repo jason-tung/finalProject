@@ -1,7 +1,14 @@
-public class Bishop extends Chesspiece{
+public class Pawn extends Chesspiece{
 
-    public Bishop(int loc, string col){
+    public Pawn(int loc, string col){
 	super(loc, color);
     }
 
+    public String toString(){
+	return "Pawn@" + getLocation();
+    }
+
+    public int[] possibleMoves(){
+	
+    }
 }
