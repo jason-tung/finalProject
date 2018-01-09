@@ -1,5 +1,11 @@
 public class Pawn extends Chesspiece{
 
-    public boolean checkmove(int loc){
+    public Pawn(int loc, string col){
+	super(loc, color);
     }
+
+    public String toString(){
+	return "Pawn@" + getLocation();
+    }
+    
 }

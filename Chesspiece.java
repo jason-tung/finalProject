@@ -1,11 +1,24 @@
 public abstract class Chesspiece{
 
-    public Chesspiece(){
+    private final int location;
+    private final String color;
+
+    public Chesspiece(int loc, int color){
+	location = loc;
+	this.color = color;
     }
 
-    abstract boolean checkmove(int loc);
+    public int getLocation(){
+	return location;
+    }
 
-    abstract void moveTo(int loc);
+    public String getColor(){
+	return color;
+    }
+
+    abstract toString();
+
+    abstract possibleMoves();
 }
 
 	
