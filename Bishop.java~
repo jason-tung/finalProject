@@ -1,7 +1,0 @@
-public class Bishop extends Chesspiece{
-
-    public Pawn(int loc, string col){
-	super(loc, color);
-    }
-
-}
