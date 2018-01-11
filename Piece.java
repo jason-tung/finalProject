@@ -1,11 +1,11 @@
 
-public abstract class Chesspiece{
+public abstract class Piece{
 
     private int xcor;
     private int ycor;
     private final String color;
 
-    public Chesspiece(int xcor, int ycor, int color){
+    public Piece(int xcor, int ycor, int color){
 	this.xcor = xcor;
 	this.ycor = ycor;
 	this.color = color;

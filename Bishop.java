@@ -1,4 +1,4 @@
-public class Pawn extends Chesspiece{
+public class Pawn extends Piece{
 
     public Pawn(int loc, string col){
 	super(loc, color);
