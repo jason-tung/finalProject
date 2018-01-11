@@ -1,6 +1,8 @@
-package squares;
-
 public class EmptySquare extends Square{
+
+    public EmptySquare(int x){
+	super(x);
+    }
     
     public Chesspiece getChesspiece(){
 	return null;

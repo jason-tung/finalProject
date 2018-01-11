@@ -1,5 +1,3 @@
-package squares;
-
 public class FilledSquare extends Square{
     private Chesspiece chesspieceHere;
 
