@@ -56,4 +56,73 @@ jtung@cslab4-30:~/finalProject$ javac Chessboard.java
 jtung@cslab4-30:~/finalProject$ java Chessboard
 jtung@cslab4-30:~/finalProject$ mv Chessboard.java GUI.java
 jtung@cslab4-30:~/finalProject$mv BoardDB.java Board.java
+jtung@cslab4-30:~/finalProject$ mv BoardDB.java Board.java
+mv: cannot stat 'BoardDB.java': No such file or directory
+jtung@cslab4-30:~/finalProject$ l
+Bishop.java    Chessboard.class  King.java    Pawn.java    Queen.java  *shell*
+BoardDB.java~  Chessboard.java~  Knight.java  Piece.java   README.md
+Board.java     GUI.java          old_news/    Piece.java~  Rook.java
+jtung@cslab4-30:~/finalProject$ javac Piece.java
+Piece.java:14: error: ';' expected
+    public int getXcor{
+                      ^
+Piece.java:18: error: ';' expected
+    public int getYcor{
+                      ^
+Piece.java:25: error: illegal start of expression
+    public String getColor(){
+    ^
+Piece.java:25: error: ';' expected
+    public String getColor(){
+                          ^
+Piece.java:29: error: class, interface, or enum expected
+    abstract toString();
+             ^
+Piece.java:31: error: class, interface, or enum expected
+    abstract possibleMoves();
+             ^
+Piece.java:32: error: reached end of file while parsing
+}
+ ^
+7 errors
+jtung@cslab4-30:~/finalProject$ javac Piece.java
+Piece.java:25: error: illegal start of expression
+    public String getColor(){
+    ^
+Piece.java:25: error: ';' expected
+    public String getColor(){
+                          ^
+Piece.java:29: error: class, interface, or enum expected
+    abstract toString();
+             ^
+Piece.java:31: error: class, interface, or enum expected
+    abstract possibleMoves();
+             ^
+Piece.java:32: error: reached end of file while parsing
+}
+ ^
+5 errors
+jtung@cslab4-30:~/finalProject$ javac Piece.java
+Piece.java:30: error: invalid method declaration; return type required
+    abstract toString();
+             ^
+Piece.java:32: error: invalid method declaration; return type required
+    abstract possibleMoves();
+             ^
+2 errors
+jtung@cslab4-30:~/finalProject$ ez started writing board setup
+[master 953429b] started writing board setup
+ 6 files changed, 95 insertions(+), 14 deletions(-)
+ create mode 100644 *shell*
+ create mode 100644 Board.java
+ delete mode 100644 BoardDB.java
+ rename Chessboard.java => GUI.java (81%)
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 2.07 KiB | 0 bytes/s, done.
+Total 7 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.        
+To git@github.com:jason-tung/finalProject.git
+   e0b7ddd..953429b  master -> master
 jtung@cslab4-30:~/finalProject$ 
