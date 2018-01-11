@@ -1,18 +1,24 @@
 
 public abstract class Chesspiece{
 
-    private final int location;
+    private int xcor;
+    private int ycor;
     private final String color;
 
-    public Chesspiece(int loc, int color){
-	location = loc;
+    public Chesspiece(int xcor, int ycor, int color){
+	this.xcor = xcor;
+	this.ycor = ycor;
 	this.color = color;
     }
 
-    public int getLocation(){
-	return location;
+    public int getXcor{
+	return xcor;
     }
-
+    
+    public int getYcor{
+	return ycor;
+    }
+    
     public String getColor(){
 	return color;
     }
