@@ -11,19 +11,23 @@ public abstract class Piece{
 	this.color = color;
     }
 
-    public int getXcor{
+    public int getXcor(){
 	return xcor;
     }
     
-    public int getYcor{
+    public int getYcor(){
 	return ycor;
+    }
+
+    public String getLocation(){
+	return getXcor + "." +getYcor;
     }
     
     public String getColor(){
 	return color;
     }
 
-    abstract toString();
+    abstract String toString();
 
     abstract possibleMoves();
 }

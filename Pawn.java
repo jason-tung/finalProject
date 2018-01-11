@@ -1,7 +1,7 @@
 public class Pawn extends Piece{
 
-    public Pawn(int loc, string col){
-	super(loc, color);
+    public Pawn(int xcor, int ycor, string col){
+	super(xcor,ycor, color);
     }
 
     public String toString(){

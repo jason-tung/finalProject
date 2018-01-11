@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Chessboard extends JFrame implements ActionListener {
+public class GUI extends JFrame implements ActionListener {
     
-  public Chessboard(){
-      this.setTitle("Chessboard");
+  public GUI(){
+      this.setTitle("GUI");
       this.setSize(800,800);
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
   }
@@ -14,7 +14,7 @@ public class Chessboard extends JFrame implements ActionListener {
 	int chicken;
 	int dog;
 	int cat;
-	
+	thingy.setColor(Color.BLACK);
 	for (turkey = 0; turkey < 8; turkey ++){
 	    for (chicken = 0; chicken < 8; chicken++){
 		dog = chicken * 100;
@@ -35,7 +35,7 @@ public class Chessboard extends JFrame implements ActionListener {
 
 
   public static void main(String[] args) {
-    Chessboard g = new Chessboard();
+    GUI g = new GUI();
     g.setVisible(true);
   }
 }
