@@ -1,22 +1,56 @@
-
-
 public class Board{
-    public Piece[][] board;
+  public Piece[][] board;
 
-    public Board(){
-	board = new Piece[8][8];
-	for (int i = 0; i < 8; i++){
+  public Board(){
+    board = new Piece[8][8];
+    for (int i = 0; i < 8; i++){
 	    board[1][i] = new Pawn(i,1,"black");
 	    board[6][i] = new Pawn(i,6,"white");
-	}
-	int[] a = {0,7};
-	for (int i: a){
-	    for (int j = 0; j < 8; j++){
-		String color = "white";
-		if (i == 0) color = "black";
-		if (j == 0){
-		    board[i][j] = new Rook(0,a,color)
-			}
+    }
+    int[] a = {0,7};
+    for (int ycor: a){
+	    for (int xcor= 0; xcor< 8; j++){
+        String color = "white";
+        if (ycor == 0) color = "black";
+        if (xcor== 0 || xcor== 7){
+          board[ycor][xcor] = new Rook(xcor,ycor,color);
+        }
+        if (xcor== 1 || xcor== 6){
+          board[ycor][xcor] = new Knight(xcor,ycor,color);
+        }
+        if (xcor== 2 || xcor== 5){
+          board[ycor][xcor] = new Bishop(xcor,ycor,color);
+        }
+        if (xcor== 3){
+          board[ycor][xcor] = new King(xcor,ycor,color);
+        }
+        if (xcor== 4){
+          board[ycor][xcor] = new Queen(xcor,ycor,color);
+        }
+      }
+    }
+  }
+
+  
+
+  public String toString(){
+    String str = "|";
+    for (int yindex = 0; yindex < board.length; yindex+= 1){
+      for (Piece pieces: board[yindex]){
+        str += pieces;
+        str += " | ";
+      }
+      if (yindex != board.length)
+      str += "\n|";
+    }
+    return str;
+  }
+
+  public static void main(String[] args){
+    Board jerry = new Board();
+    System.out.println(jerry);
+  }
+}
 	
     
     
