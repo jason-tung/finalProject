@@ -57,22 +57,23 @@ Big Boy GUI Chess
  - Move log
 
 ## IV. Development stages
+
+### I plan on writing everything in Terminal before moving into GUI
+
  - [x] Make a board
- - [x] Pack square into a package
+ - [x] ~~Pack square into a package~~
  - [ ] Move board to GUI
  - [ ] Make ugly looking pieces **moved to later stage**
- - [x] ~~Game class which store pieces and their coordinates (probably a hash map or super array)~~ The squares will remember the pieces' locations
+ - [x] ~~Game class which store pieces and their coordinates (probably a hash map or super array)~~ put them into ary
  - [x] Make abstract class chessPiece
  - [x] Write child classes for pieces
- - [ ] Discover list of possible moves for x piece
- - [ ] Finish pawns
- - [ ] make ugly looking pawns **moved from earlier stage**
- - [ ] Implement pawns into GUI
- - [ ] Setup which puts the pieces onto the board (just the pawns for now)
- - [ ] Write the rest of the pieces’ movement
- - [ ] GUI Implementation
- - [ ] Write capture for pieces
- - [ ] Implement into GUI and test
+ - [x] Setup up board
+ - [ ] Discover list of possible moves for x piece **might not be needed**
+ - [ ] Write movement & capture
+ - [ ] Make GUI pieces **moved from earlier stage**
+ - [ ] Write board in GUI
+ - [ ] Implement Pieces onto the GUI
+ - [ ] Movement on GUI
  - [ ] Write special moves 
  - [ ] Implement into GUI and test
  - [ ] Write,  implement, test check
@@ -94,6 +95,11 @@ Big Boy GUI Chess
  - Writing Chesspiece child classes
    - including list of possible moves
  - Organizing Packages
+ - Making board
+ - Putting pieces on board
+ - Board setup
+ - **CURRENT** Movement
 
 ## To Work On
  - Preset scenarios
+ - GUI Implementation
