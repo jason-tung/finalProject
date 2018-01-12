@@ -28,10 +28,21 @@ public abstract class Piece{
     }
 
   public String toString(){
-    return "null@" + getLocation();
-  };
+    return "// EROR@" + getLocation();
+   };
     
-    abstract ArrayList<Move> possibleMoves();
+     abstract ArrayList<Move> possibleMoves();
+
+     abstract  boolean moveTo(Piece[][] board, int xcor, int ycor);
+
+  //   public boolean moveTo(Piece[][] board, int xcor, int ycor){
+  // 	if (!board[ycor][xcor].getColor().equals(getColor())){
+  // 	    board[ycor][xcor] = new Pawn(xcor, ycor, getColor());
+  // 	    board[getYcor()][getXcor()] = new Nothing(getYcor(), getXcor(), null);
+  // 	    return true;
+  // 	}
+  // 	return false;
+  //   }
 }
 
 	
