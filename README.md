@@ -60,15 +60,13 @@ Big Boy GUI Chess
 
  - [x] Make a board
  - [x] ~~Pack square into a package~~
- - [ ] Move board to GUI
- - [ ] Make ugly looking pieces **moved to later stage**
  - [x] ~~Game class which store pieces and their coordinates (probably a hash map or super array)~~ put them into ary
  - [x] Make abstract class chessPiece
  - [x] Write child classes for pieces
  - [x] Setup up board
  - [ ] Discover list of possible moves for x piece **might not be needed**
  - [ ] Write movement & capture
- - [ ] Make GUI pieces **moved from earlier stage**
+ - [ ] Make GUI pieces 
  - [ ] Write board in GUI
  - [ ] Implement Pieces onto the GUI
  - [ ] Movement on GUI
