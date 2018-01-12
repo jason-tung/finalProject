@@ -54,6 +54,10 @@ public class Board{
   public static void main(String[] args){
     Board jerry = new Board();
     System.out.println(jerry);
+     System.out.println("\n");
+     jerry.board[2][0]=new Pawn(0,2,"black");
+    jerry.board[1][0] = new Nothing(0,1,null);
+     System.out.println(jerry);
     //System.out.println(jerry.board[3][0].getColor());
   }
 }
