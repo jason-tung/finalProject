@@ -1,14 +1,16 @@
-public class Pawn extends Piece{
+import java.util.*;
 
-    public Pawn(int loc, string col){
-	super(loc, color);
+public class Bishop extends Piece{
+
+    public Bishop(int xcor, int ycor, String col){
+	super(xcor,ycor, col);
     }
 
     public String toString(){
-	return "Pawn@" + getLocation();
+	return "Bshp@" + getLocation();
     }
 
-    public int[] possibleMoves(){
-	
+    public ArrayList<Move> possibleMoves(){
+      return null;
     }
 }

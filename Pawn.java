@@ -3,7 +3,7 @@ import java.util.*;
 public class Pawn extends Piece{
 
     public Pawn(int xcor, int ycor, String col){
-	super(xcor,ycor, color);
+	super(xcor,ycor, col);
     }
 
     public String toString(){
@@ -11,6 +11,6 @@ public class Pawn extends Piece{
     }
 
     public ArrayList<Move> possibleMoves(){
-	
+      return null;
     }
 }

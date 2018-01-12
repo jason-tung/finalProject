@@ -1,14 +1,16 @@
+import java.util.*;
+
 public class Knight extends Piece{
 
-    public Knight(int loc, string col){
-	super(loc, color);
+    public Knight(int xcor, int ycor, String col){
+	super(xcor,ycor, col);
     }
 
     public String toString(){
-	return "Knight@" + getLocation();
+	return "Kngt@" + getLocation();
     }
 
-    public int[] possibleMoves(){
-	
+    public ArrayList<Move> possibleMoves(){
+      return null;
     }
 }

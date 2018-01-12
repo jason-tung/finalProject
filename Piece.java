@@ -20,14 +20,16 @@ public abstract class Piece{
     }
 
     public String getLocation(){
-	return getXcor + "." +getYcor;
+      return getXcor() + "," +getYcor();
     }
     
     public String getColor(){
 	return color;
     }
 
-    abstract String toString();
+  public String toString(){
+    return "null@" + getLocation();
+  };
 
     abstract ArrayList<Move> possibleMoves();
 }

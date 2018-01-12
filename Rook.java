@@ -1,14 +1,16 @@
+import java.util.*;
+
 public class Rook extends Piece{
 
-    public Rook(int loc, string col){
-	super(loc, color);
+    public Rook(int xcor, int ycor, String col){
+	super(xcor,ycor, col);
     }
 
     public String toString(){
 	return "Rook@" + getLocation();
     }
 
-    public int[] possibleMoves(){
-	
+    public ArrayList<Move> possibleMoves(){
+      return null;
     }
 }

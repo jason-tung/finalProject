@@ -1,14 +1,16 @@
+import java.util.*;
+
 public class King extends Piece{
 
-    public King(int loc, string col){
-	super(loc, color);
+    public King(int xcor, int ycor, String col){
+	super(xcor,ycor, col);
     }
 
     public String toString(){
 	return "King@" + getLocation();
     }
 
-    public int[] possibleMoves(){
-	
+    public ArrayList<Move> possibleMoves(){
+      return null;
     }
 }

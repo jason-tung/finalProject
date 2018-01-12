@@ -1,14 +1,16 @@
+import java.util.*;
+
 public class Queen extends Piece{
 
-    public Queen(int loc, string col){
-	super(loc, color);
+    public Queen(int xcor, int ycor, String col){
+	super(xcor,ycor, col);
     }
 
     public String toString(){
-	return "Queen@" + getLocation();
+	return "Quen@" + getLocation();
     }
 
-    public int[] possibleMoves(){
-	
+    public ArrayList<Move> possibleMoves(){
+      return null;
     }
 }
