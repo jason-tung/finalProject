@@ -9,7 +9,7 @@ public class Board{
     }
     int[] a = {0,7};
     for (int ycor: a){
-	    for (int xcor= 0; xcor< 8; j++){
+	    for (int xcor= 0; xcor< 8; xcor++){
         String color = "white";
         if (ycor == 0) color = "black";
         if (xcor== 0 || xcor== 7){

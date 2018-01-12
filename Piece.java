@@ -1,11 +1,11 @@
-
+import java.util.*;
 public abstract class Piece{
 
     private int xcor;
     private int ycor;
     private final String color;
 
-    public Piece(int xcor, int ycor, int color){
+    public Piece(int xcor, int ycor, String color){
 	this.xcor = xcor;
 	this.ycor = ycor;
 	this.color = color;
@@ -29,7 +29,7 @@ public abstract class Piece{
 
     abstract String toString();
 
-    abstract possibleMoves();
+    abstract ArrayList<Move> possibleMoves();
 }
 
 	

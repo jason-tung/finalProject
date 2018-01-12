@@ -1,6 +1,8 @@
+import java.util.*;
+
 public class Pawn extends Piece{
 
-    public Pawn(int xcor, int ycor, string col){
+    public Pawn(int xcor, int ycor, String col){
 	super(xcor,ycor, color);
     }
 
@@ -8,7 +10,7 @@ public class Pawn extends Piece{
 	return "Pawn@" + getLocation();
     }
 
-    public int[] possibleMoves(){
+    public ArrayList<Move> possibleMoves(){
 	
     }
 }
