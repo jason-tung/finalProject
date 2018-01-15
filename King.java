@@ -10,7 +10,9 @@ public class King extends Piece{
 	return "k@" + getLocation();
     }
 
-    public ArrayList<Move> possibleMoves(){
-      return null;
-    }
+    public void makePiece(Piece[][] board, int xcor, int ycor){
+        board[ycor][xcor] = new King(xcor, ycor, getColor());
+    };
+    
+    
 }

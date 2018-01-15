@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Nothing extends Piece{
 
-    public Nothing(int xcor, int ycor, String col){
-  super(xcor,ycor, col);
+    public Nothing(int xcor, int ycor){
+  super(xcor,ycor, "none");
     }
 
     public String toString(){
@@ -13,4 +13,10 @@ public class Nothing extends Piece{
     public ArrayList<Move> possibleMoves(){
       return null;
     }
+
+    public void makePiece(Piece[][] board, int xcor, int ycor){
+        board[ycor][xcor] = new Nothing(xcor, ycor);
+    };
+    
+    
 }

@@ -5,7 +5,7 @@ public class Board{
     board = new Piece[8][8];
     for (int i = 0; i < 8; i++){
       for (int j = 0; j < 8; j++){
-        board[i][j] = new Nothing(j,i,"none");
+        board[i][j] = new Nothing(j,i);
       }
     }
     for (int i = 0; i < 8; i++){
@@ -55,8 +55,12 @@ public class Board{
     Board jerry = new Board();
     System.out.println(jerry);
      System.out.println("\n");
-     System.out.println(jerry.board[1][0].moveTo(jerry.board,0,3) + "\n");
+     Piece x = jerry.board[0][1];
+     x.addMoves();
+     System.out.println(x.possibleMoves);
+     System.out.println(x.moveTo(jerry.board, 0, 2));
      System.out.println(jerry);
+
     //System.out.println(jerry.board[3][0].getColor());
   }
 }

@@ -10,7 +10,8 @@ public class Bishop extends Piece{
 	return "b@" + getLocation();
     }
 
-    public ArrayList<Move> possibleMoves(){
-      return null;
-    }
+    public void makePiece(Piece[][] board, int xcor, int ycor){
+        board[ycor][xcor] = new Bishop(xcor, ycor, getColor());
+    };
+    
 }

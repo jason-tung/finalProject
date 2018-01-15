@@ -4,7 +4,7 @@ public abstract class Piece{
   private int xcor;
   private int ycor;
   private final String color;
-    private ArrayList<Move> moveList;
+    public  ArrayList<Move> possibleMoves;
 
   public Piece(int xcor, int ycor, String color){
     this.xcor = xcor;
@@ -31,19 +31,38 @@ public abstract class Piece{
   public String toString(){
     return "EROR@" + getLocation();
   };
-    
-  abstract ArrayList<Move> possibleMoves();
 
+    public void addMoves(){}
+    
+    public ArrayList<Move> possibleMoves(){
+	return possibleMoves;
+    }
+
+    abstract void makePiece(Piece[][] board, int xcor, int ycor);
+    
     //abstract  boolean moveTo(Piece[][] board, int xcor, int ycor);
 
-     public boolean moveTo(Piece[][] board, int xcor, int ycor){
-   	if (!board[ycor][xcor].getColor().equals(getColor())){
-   	    board[ycor][xcor] = new Pawn(xcor, ycor, getColor());
-   	    board[getYcor()][getXcor()] = new Nothing(getYcor(), getXcor(), null);
-   	    return true;
-   	}
-   	return false;
-     }
+    public boolean moveTo(Piece[][] board, int xcor, int ycor){
+	
+	Move testMove = new Move(xcor,ycor);
+	/*
+	ArrayList<Move> testy = possibleMoves();
+	int testy2 = testy.indexOf("123");
+	*/
+	if (!board[ycor][xcor].getColor().equals(getColor()) && possibleMoves().indexOf(testMove)!=-1){
+	    try{
+		makePiece(board, xcor, ycor);//board[ycor][xcor] = new this(xcor, ycor, getColor())
+		board[getYcor()][getXcor()] = new Nothing(getXcor(),getYcor());
+		return true;
+	    }
+	    catch (Exception e){
+		e.printStackTrace();
+		return false;
+	    }
+	}
+	return false;
+    
+    }
 }
 
 	

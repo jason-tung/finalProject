@@ -10,7 +10,9 @@ public class Queen extends Piece{
 	return "q@" + getLocation();
     }
 
-    public ArrayList<Move> possibleMoves(){
-      return null;
-    }
+    public void makePiece(Piece[][] board, int xcor, int ycor){
+        board[ycor][xcor] = new Queen(xcor, ycor, getColor());
+    };
+    
+    
 }

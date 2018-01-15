@@ -10,7 +10,20 @@ public class Knight extends Piece{
 	return "n@" + getLocation();
     }
 
-    public ArrayList<Move> possibleMoves(){
-      return null;
+    public void addMoves(){
+	for (int x = 0; x < 8; x++){
+	    for (int y = 0; y < 8; y++){
+		if (getXcor() * getXcor() + getYcor() * getYcor() == 13){
+		    possibleMoves.add(new Move(getXcor(),getYcor(),x,y));
+		}
+	    }
+	}
+	possibleMoves.add(new Move(getXcor()
     }
+
+    public void makePiece(Piece[][] board, int xcor, int ycor){
+        board[ycor][xcor] = new Knight(xcor, ycor, getColor());
+    };
+    
+    
 }

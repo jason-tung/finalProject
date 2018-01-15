@@ -10,7 +10,8 @@ public class Rook extends Piece{
 	return "r@" + getLocation();
     }
 
-    public ArrayList<Move> possibleMoves(){
-      return null;
-    }
+       public void makePiece(Piece[][] board, int xcor, int ycor){
+        board[ycor][xcor] = new Rook(xcor, ycor, getColor());
+    };
+    
 }
