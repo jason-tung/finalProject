@@ -58,7 +58,7 @@ public class Board{
      Piece x = jerry.board[0][1];
      x.addMoves();
      System.out.println(x.possibleMoves);
-     System.out.println(x.moveTo(jerry.board, 0, 2));
+     System.out.println(x.moveTo(jerry.board, 2, 2));
      System.out.println(jerry);
 
     //System.out.println(jerry.board[3][0].getColor());

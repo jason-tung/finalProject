@@ -14,11 +14,11 @@ public class Knight extends Piece{
 	for (int x = 0; x < 8; x++){
 	    for (int y = 0; y < 8; y++){
 		if (getXcor() * getXcor() + getYcor() * getYcor() == 13){
-		    possibleMoves.add(new Move(getXcor(),getYcor(),x,y));
+		    possibleMoves.add(new Move(x,y));
 		}
 	    }
 	}
-	possibleMoves.add(new Move(getXcor()
+	possibleMoves.add(new Move(2,2));
     }
 
     public void makePiece(Piece[][] board, int xcor, int ycor){

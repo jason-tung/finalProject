@@ -1,11 +1,13 @@
 
 public class Move{
-    public int iXcor, iYcor, fXcor, fYcor;
+    public int fXcor, fYcor;
 
-    public Move(int a, int b, int c, int d){
-	iXcor = a;
-	iYcor = b;
+    public Move(int c, int d){
 	fXcor = c;
 	fYcor = d;
+    }
+
+    public String toString(){
+	return ">" + fXcor + "." + fYcor;
     }
 }
