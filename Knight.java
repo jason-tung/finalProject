@@ -7,7 +7,7 @@ public class Knight extends Piece{
     }
 
     public String toString(){
-	return "Kngt@" + getLocation();
+	return "n@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){

@@ -7,7 +7,7 @@ public class Rook extends Piece{
     }
 
     public String toString(){
-	return "Rook@" + getLocation();
+	return "r@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){

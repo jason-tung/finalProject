@@ -7,7 +7,7 @@ public class Bishop extends Piece{
     }
 
     public String toString(){
-	return "Bshp@" + getLocation();
+	return "b@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){

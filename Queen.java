@@ -7,7 +7,7 @@ public class Queen extends Piece{
     }
 
     public String toString(){
-	return "Quen@" + getLocation();
+	return "q@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){

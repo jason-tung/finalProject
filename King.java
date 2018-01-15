@@ -7,7 +7,7 @@ public class King extends Piece{
     }
 
     public String toString(){
-	return "King@" + getLocation();
+	return "k@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){

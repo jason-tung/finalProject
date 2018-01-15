@@ -10,7 +10,7 @@ public class Pawn extends Piece{
     }
 
     public String toString(){
-	return "Pawn@" + getLocation();
+	return "p@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){
