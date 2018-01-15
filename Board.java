@@ -39,16 +39,17 @@ public class Board{
   
 
   public String toString(){
-    String str = "|";
+      String bar = "----------------------------------------------------------------";
+    String str = bar + "\n|";
     for (int yindex = 0; yindex < board.length; yindex+= 1){
       for (Piece pieces: board[yindex]){
         str += pieces;
         str += " | ";
       }
       if (yindex != board.length-1)
-      str += "\n|";
+      str += "\n" + bar + "\n|";
     }
-    return str;
+    return str + "\n" +  bar;
   }
 
   public static void main(String[] args){
