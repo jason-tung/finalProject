@@ -94,7 +94,8 @@ Big Boy GUI Chess
  - Making board
  - Putting pieces on board
  - Board setup
- - **CURRENT** Movement
+ - **CURRENT** Movement -- making it work in two directions
+ - Adding pictures for the GUI
 
 ## To Work On
  - Preset scenarios
