@@ -7,7 +7,7 @@ public class Nothing extends Piece{
     }
 
     public String toString(){
-  return "-@" + getLocation();
+	return "-@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){
