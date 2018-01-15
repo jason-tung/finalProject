@@ -66,7 +66,7 @@ Big Boy GUI Chess
  - [x] Setup up board
  - [ ] Discover list of possible moves for x piece **might not be needed**
  - [ ] Write movement & capture
- - [ ] Make GUI pieces 
+ - [x] Make GUI pieces -- i just need to add an image icon to a jlabel
  - [ ] Write board in GUI
  - [ ] Implement Pieces onto the GUI
  - [ ] Movement on GUI
