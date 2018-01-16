@@ -7,7 +7,7 @@ public class Knight extends Piece{
     }
 
     public String toString(){
-	return "n@" + getLocation();
+	return getColor().charAt(0) + "n@" + getLocation();
     }
 
     public void addMoves(){

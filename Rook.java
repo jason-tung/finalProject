@@ -7,7 +7,7 @@ public class Rook extends Piece{
     }
 
     public String toString(){
-	return "r@" + getLocation();
+	return getColor().charAt(0) + "r@" + getLocation();
     }
 
        public void makePiece(Piece[][] board, int xcor, int ycor){

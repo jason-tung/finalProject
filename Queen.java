@@ -7,7 +7,7 @@ public class Queen extends Piece{
     }
 
     public String toString(){
-	return "q@" + getLocation();
+	return getColor().charAt(0) + "q@" + getLocation();
     }
 
     public void makePiece(Piece[][] board, int xcor, int ycor){

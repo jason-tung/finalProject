@@ -7,7 +7,7 @@ public class King extends Piece{
     }
 
     public String toString(){
-	return "k@" + getLocation();
+	return getColor().charAt(0) + "k@" + getLocation();
     }
 
     public void makePiece(Piece[][] board, int xcor, int ycor){

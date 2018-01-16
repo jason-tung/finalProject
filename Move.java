@@ -10,4 +10,8 @@ public class Move{
     public String toString(){
 	return ">" + fXcor + "." + fYcor;
     }
+
+    public boolean equals(Move other){
+	return this.fXcor == other.fXcor && this.fYcor == other.fYcor;
+    }
 }

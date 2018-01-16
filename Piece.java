@@ -30,7 +30,7 @@ public abstract class Piece{
   }
 
   public String toString(){
-      return "!@" + getLocation(); // ERROR
+      return "!!@" + getLocation(); // ERROR
   };
 
     public void addMoves(){}
@@ -44,7 +44,7 @@ public abstract class Piece{
     //abstract  boolean moveTo(Piece[][] board, int xcor, int ycor);
 
     public boolean moveTo(Piece[][] board, int xcor, int ycor){
-	
+	addMoves();
 	Move testMove = new Move(xcor,ycor);
 	/*
 	ArrayList<Move> testy = possibleMoves();

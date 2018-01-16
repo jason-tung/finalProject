@@ -39,7 +39,7 @@ public class Board{
   
 
   public String toString(){
-      String bar = "-----------------------------------------------------------------";
+      String bar = "-------------------------------------------------------------------------";
     String str = bar + "\n| ";
     for (int yindex = 0; yindex < board.length; yindex+= 1){
       for (Piece pieces: board[yindex]){
@@ -55,16 +55,29 @@ public class Board{
 
   public static void main(String[] args){
     Board jerry = new Board();
-    System.out.println(jerry);
-     System.out.println("\n");
-     Piece x = jerry.board[0][1];
-     x.addMoves();
-     System.out.println(x.possibleMoves);
-     System.out.println(x.moveTo(jerry.board, 2, 2));
-     System.out.println(jerry);
+    System.out.println(jerry + "\n");
+    jerry.bMoveTo(0,0,1,0);
+    jerry.bMoveTo(0,1,2,2);
+    jerry.bMoveTo(0,2,7,7);
+
+
+    
+     // System.out.println("\n");
+     // Piece jerry.board[0][1] = jerry.board[0][1];
+     // System.out.println(jerry.board[0][1].possibleMoves());
+     // System.out.println(jerry.board[0][1].moveTo(jerry.board, 2, 2));
+     // jerry.bMoveTo(0,1,2,2);
+     // System.out.println(jerry);
 
     //System.out.println(jerry.board[3][0].getColor());
   }
+
+    public boolean bMoveTo(int ixcor, int iycor, int fxcor, int fycor){
+	boolean x = board[ixcor][iycor].moveTo(board, fxcor, fycor);
+	System.out.println(x);
+	System.out.println(this + "\n");
+	return x;
+    }
 }
 	
     

@@ -7,7 +7,7 @@ public class Bishop extends Piece{
     }
 
     public String toString(){
-	return "b@" + getLocation();
+	return getColor().charAt(0) + "b@" + getLocation();
     }
 
     public void makePiece(Piece[][] board, int xcor, int ycor){

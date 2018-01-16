@@ -7,7 +7,7 @@ public class Nothing extends Piece{
     }
 
     public String toString(){
-	return "-@" + getLocation();
+	return "--@" + getLocation();
     }
 
     public ArrayList<Move> possibleMoves(){
@@ -17,6 +17,9 @@ public class Nothing extends Piece{
     public void makePiece(Piece[][] board, int xcor, int ycor){
         board[ycor][xcor] = new Nothing(xcor, ycor);
     };
-    
+
+   public boolean moveTo(Piece[][] board, int xcor, int ycor){
+       return false;
+   }
     
 }
