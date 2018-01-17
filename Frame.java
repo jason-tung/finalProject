@@ -7,31 +7,19 @@ public class Frame extends JFrame{
     private JMenuBar navbar;
     private JPanel board;
     private int x,y;
+
+    public Frame(){
+	new Frame(1080,1080);
+    }
     
-  public Frame(){
-      g = new JFrame("CHESS CHESS CHESS CHESS CHESS");
-      navbar = new JMenuBar();
-      g.setJMenuBar(navbar);
-      g.setSize(new Dimension(600,600));
-      x = 600;
-      y = 600;
-      g.setVisible(true);
-      g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-      //cool stuff here
-      addToBar(navbar);
-      makeBoard();
-  }
-
     public Frame(int x, int y){
         g = new JFrame("CHESS CHESS CHESS CHESS CHESS");
       navbar = new JMenuBar();
       g.setJMenuBar(navbar);
-      
       g.setSize(new Dimension(x,y));
       this.x = x;
       this.y = y;
-      
+      g.setBounds(0,0,x,y);
       g.setVisible(true);
       g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       addToBar(navbar);
@@ -57,8 +45,15 @@ public class Frame extends JFrame{
 		}
 	    });	    
 	thingy.add(openTab);
-	//
 
+	//EXIT TAB
+	JMenuItem exit = new JMenuItem("Exit");
+	exit.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e){
+		    System.exit(0);
+		}
+	    });	    
+	thingy.add(exit);
 	//NAVBAR ADD HERE
 	menubar.add(thingy);
     }
@@ -66,6 +61,7 @@ public class Frame extends JFrame{
     public void makeBoard(){
 	board = new JPanel();
 	board.setLayout(new GridLayout(8,8));
+	board.setBounds(0,0,x,y);
 	int tempy = Math.min(x,y);
 	board.setPreferredSize(new Dimension(tempy,tempy));
 	Color brown = new Color(139,69,19);
