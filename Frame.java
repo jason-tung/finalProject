@@ -7,6 +7,7 @@ public class Frame extends JFrame{
     private JMenuBar navbar;
     private JPanel board;
     private int x,y;
+    private Board info = new Board();
 
     public Frame(){
 	new Frame(1080,1080);
@@ -24,6 +25,7 @@ public class Frame extends JFrame{
       g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       addToBar(navbar);
       makeBoard();
+      //g.setLayout(new BorderLayout());
     }
     
 
@@ -73,10 +75,12 @@ public class Frame extends JFrame{
 		if ((i+j)%2==0){
 		    temp.setBackground(Color.black);
 		}
+		//temp.add(info.board[i][j].icon);
 		board.add(temp);
+		
 	    }
 	}
-	g.add(board);
+	g.add(board,BorderLayout.CENTER);
     }
     
 }

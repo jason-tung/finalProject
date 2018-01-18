@@ -1,4 +1,5 @@
 import java.util.*;
+import javax.swing.*;
 
 public class Pawn extends Piece{
 
@@ -7,6 +8,12 @@ public class Pawn extends Piece{
     public Pawn(int xcor, int ycor, String col){
 	super(xcor,ycor, col);
 	hasMoved = false;
+
+	setIcon(new ImageIcon(".pieceImage/wp.png"));
+	if (col.equals("black")){
+	    setIcon(new ImageIcon("./pieceImage/bp.png"));
+	}
+
     }
 
     public String toString(){

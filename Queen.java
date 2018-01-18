@@ -1,9 +1,14 @@
 import java.util.*;
+import javax.swing.*;
 
 public class Queen extends Piece{
 
     public Queen(int xcor, int ycor, String col){
 	super(xcor,ycor, col);
+	setIcon(new ImageIcon(".pieceImage/wq.png"));
+	if (col.equals("black")){
+	    setIcon(new ImageIcon("./pieceImage/bq.png"));
+	}
     }
 
     public String toString(){

@@ -1,9 +1,14 @@
 import java.util.*;
+import javax.swing.*;
 
 public class Knight extends Piece{
 
     public Knight(int xcor, int ycor, String col){
 	super(xcor,ycor, col);
+		setIcon(new ImageIcon(".pieceImage/wn.png"));
+	if (col.equals("black")){
+	    setIcon(new ImageIcon("./pieceImage/bn.png"));
+	}
     }
 
     public String toString(){

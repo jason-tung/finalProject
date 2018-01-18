@@ -1,9 +1,14 @@
 import java.util.*;
+import javax.swing.*;
 
 public class Rook extends Piece{
 
     public Rook(int xcor, int ycor, String col){
 	super(xcor,ycor, col);
+		setIcon(new ImageIcon(".pieceImage/wr.png"));
+	if (col.equals("black")){
+	    setIcon(new ImageIcon("./pieceImage/br.png"));
+	}
     }
 
     public String toString(){
