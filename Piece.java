@@ -68,6 +68,9 @@ public abstract class Piece{
 	return false; 
     
     }
+    public void setIcon(ImageIcon x){
+	icon = x;
+    }
 }
 
 	

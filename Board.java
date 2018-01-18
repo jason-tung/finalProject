@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Board{
   public Piece[][] board;
 
@@ -36,6 +39,54 @@ public class Board{
     }
   }
 
+    public Board(String dog){
+	try{
+	    Scanner in = new Scanner(new File("dog"));
+	    board = new Piece[8][8];
+	    int y =0;
+	    int x =0;
+	    while (in.hasNext()){
+		    board[y][x] = parse(in.next());
+		    y++;
+		    if (y == 8){
+			y = 0;
+			x++;
+		    }
+		}
+	}
+	catch(Exception e){
+	    System.out.println("--something goofed--");
+	    e.printStackTrace();
+	    System.exit(1);
+	}
+    }
+
+    public Piece parse(String nxt){
+	String color = "" +  nxt.charAt(0);
+	int xcor = Integer.valueOf(nxt.charAt(3));
+	int ycor = Integer.valueOf(nxt.charAt(nxt.length()-1));
+        char type = nxt.charAt(1);
+	if (type == 'p'){
+	    return new Pawn(xcor, ycor, color);
+	}
+	if (type == 'r'){
+	    return new Rook(xcor, ycor, color);
+	}
+	if (type == 'b'){
+	    return new Bishop(xcor, ycor, color);
+	}
+	if (type == 'n'){
+	    return new Knight(xcor, ycor, color);
+	}
+	if (type == 'k'){
+	    return new King(xcor, ycor, color);
+	}
+	if (type == 'q'){
+	    return new Queen(xcor, ycor, color);
+	}
+	return new Nothing(xcor,ycor);
+    }
+
   
 
   public String toString(){
@@ -54,11 +105,12 @@ public class Board{
   }
 
   public static void main(String[] args){
-    Board jerry = new Board();
-    System.out.println(jerry + "\n");
-    jerry.bMoveTo(0,0,1,0);
-    jerry.bMoveTo(0,1,2,2);
-    jerry.bMoveTo(0,2,7,7);
+      
+     Board jerry = new Board();
+     System.out.println(jerry + "\n");
+    // jerry.bMoveTo(0,0,1,0);
+    // jerry.bMoveTo(0,1,2,2);
+    // jerry.bMoveTo(0,2,7,7);
 
 
     
