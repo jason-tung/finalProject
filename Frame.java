@@ -63,12 +63,12 @@ public class Frame extends JFrame{
 	board.setLayout(new GridLayout(8,8));
 	board.setBounds(0,0,x,y);
 	int tempy = Math.min(x,y);
-	board.setPreferredSize(new Dimension(tempy,tempy));
+	board.setSize(new Dimension(tempy,tempy));
 	Color brown = new Color(139,69,19);
 	for (int i = 0; i < 8; i++){
 	    for (int j = 0; j < 8; j++){
 		JPanel temp = new JPanel();
-		temp.setPreferredSize(new Dimension(x/8,y/8));
+		temp.setSize(new Dimension(x/8,y/8));
 		temp.setBackground(Color.white);
 		if ((i+j)%2==0){
 		    temp.setBackground(Color.black);
