@@ -1,43 +1,46 @@
 import java.io.*;
 import java.util.*;
+import java.nio.file.*;
+
+
 
 public class Board{
-  public Piece[][] board;
+    public Piece[][] board;
 
-  public Board(){
-    board = new Piece[8][8];
-    for (int i = 0; i < 8; i++){
-      for (int j = 0; j < 8; j++){
-        board[i][j] = new Nothing(j,i);
-      }
-    }
-    for (int i = 0; i < 8; i++){
+    public Board(){
+	board = new Piece[8][8];
+	for (int i = 0; i < 8; i++){
+	    for (int j = 0; j < 8; j++){
+		board[i][j] = new Nothing(j,i);
+	    }
+	}
+	for (int i = 0; i < 8; i++){
 	    board[1][i] = new Pawn(i,1,"black");
 	    board[6][i] = new Pawn(i,6,"white");
-    }
-    int[] a = {0,7};
-    for (int ycor: a){
+	}
+	int[] a = {0,7};
+	for (int ycor: a){
 	    for (int xcor= 0; xcor< 8; xcor++){
-        String color = "white";
-        if (ycor == 0) color = "black";
-        if (xcor== 0 || xcor== 7){
-          board[ycor][xcor] = new Rook(xcor,ycor,color);
-        }
-        if (xcor== 1 || xcor== 6){
-          board[ycor][xcor] = new Knight(xcor,ycor,color);
-        }
-        if (xcor== 2 || xcor== 5){
-          board[ycor][xcor] = new Bishop(xcor,ycor,color);
-        }
-        if (xcor== 3){
-          board[ycor][xcor] = new Queen(xcor,ycor,color);
-        }
-        if (xcor== 4){
-          board[ycor][xcor] = new King(xcor,ycor,color);
-        }
-      }
+		String color = "white";
+		if (ycor == 0) color = "black";
+		if (xcor== 0 || xcor== 7){
+		    board[ycor][xcor] = new Rook(xcor,ycor,color);
+		}
+		if (xcor== 1 || xcor== 6){
+		    board[ycor][xcor] = new Knight(xcor,ycor,color);
+		}
+		if (xcor== 2 || xcor== 5){
+		    board[ycor][xcor] = new Bishop(xcor,ycor,color);
+		}
+		if (xcor== 3){
+		    board[ycor][xcor] = new Queen(xcor,ycor,color);
+		}
+		if (xcor== 4){
+		    board[ycor][xcor] = new King(xcor,ycor,color);
+		}
+	    }
+	}
     }
-  }
 
     public Board(String dog){
 	try{
@@ -53,12 +56,12 @@ public class Board{
 		    x = 0;
 		    
 		    y++;
-		    }
-		// System.out.println(doggy + parse(doggy));  
 		}
+		// System.out.println(doggy + parse(doggy));  
+	    }
 	}
 	catch(Exception e){
-	    System.out.println("--something goofed--");
+	    System.out.println("ERROR Board: i think you gave me bad filename");
 	    e.printStackTrace();
 	    System.exit(1);
 	}
@@ -110,77 +113,127 @@ public class Board{
 	for (int i = 0; i < 8; i++){
 	    for (int j = 0; j < 8; j++){
 		out += board[i][j];
-		    out += " ";
+		out += " ";
 	    }
 	}
 	return out;
     }
   
 
-  public String toString(){
-      String bar = "-------------------------------------------------------------------------";
-    String str = bar + "\n| ";
-    for (int yindex = 0; yindex < board.length; yindex+= 1){
-      for (Piece pieces: board[yindex]){
-        str += pieces;
-        str += " | ";
-	str = str.substring(0,str.length());
-      }
-      if (yindex != board.length-1)
-      str += "\n" + bar + "\n| ";
+    public String toString(){
+	String bar = "-------------------------------------------------------------------------";
+	String str = bar + "\n| ";
+	for (int yindex = 0; yindex < board.length; yindex+= 1){
+	    for (Piece pieces: board[yindex]){
+		str += pieces;
+		str += " | ";
+		str = str.substring(0,str.length());
+	    }
+	    if (yindex != board.length-1)
+		str += "\n" + bar + "\n| ";
+	}
+	return str + "\n" +  bar;
     }
-    return str + "\n" +  bar;
-  }
 
-  public static void main(String[] args){
-      if (args.length == 0){
-	  Board jerry = new Board();
-	  jerry.writeFile("dog.txt");
-	  System.out.println(jerry);
-	  System.out.println("\nboard is now set up\ntype 'java Board help' if you need help");
-      }
-      if (args.length == 1 && args[0].toLowerCase().equals("help")){
-	  printHelp();
-      }
-      if (args.length == 4){
-	  try{
-	      Board jerry = new Board("dog.txt");
+    
+    public static void saveFile(String filename){
+	try{
+	    Files.copy(new File("dog").toPath(), new File(filename).toPath(),StandardCopyOption.REPLACE_EXISTING);
+	}
+	catch (Exception e){
+	    e.printStackTrace();
+	    System.exit(1);
+	}
+	
+    }
+    
+      
+    public static void setup(String filename, String[] args){
+	try{
+	    Board jerry = new Board(filename);
 	  
-	      int ixcor = Integer.valueOf(args[0]);
-	      int iycor = Integer.valueOf(args[1]);
-	      int mxcor = Integer.valueOf(args[2]);
-	      int mycor = Integer.valueOf(args[3]);
+	    int ixcor = Integer.valueOf(args[0]);
+	    int iycor = Integer.valueOf(args[1]);
+	    int mxcor = Integer.valueOf(args[2]);
+	    int mycor = Integer.valueOf(args[3]);
 	     
-	      if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
-		  System.out.println("good move");
-	      }
-	      else{
-		  System.out.println("bad move");
+	    if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
+		System.out.println("good move");
+	    }
+	    else{
+		System.out.println("bad move");
 		  
-	      }
-	      jerry.writeFile("dog.txt");
-	      System.out.println(jerry);
+	    }
+	    jerry.writeFile("dog.txt");
+	    System.out.println(jerry);
         
-	  }
-	  catch(Exception e){
-	      System.out.println("--something goofed--");
-	      e.printStackTrace();
-	      System.exit(1);
-	  }
-      }
-  }
+	}
+	catch(Exception e){
+	    System.out.println("ERROR setup: --I think that you gave me a bad file--");
+	    System.exit(1);
+	}
+    }
+      
 	  
 
     public boolean bMoveTo(int ixcor, int iycor, int fxcor, int fycor){
-	boolean x = board[ixcor][iycor].moveTo(board, fxcor, fycor);
+	boolean x = board[iycor][ixcor].moveTo(board, fxcor, fycor);
 	System.out.println(this + "\n");
 	return x;
     }
 
     public static void printHelp(){
+	System.out.println(" - - HELP MENU - - ");
 	System.out.println("this is chess, but it's in the terminal.\nsoon it will be moved to the GUI (i hope...)");
-	System.out.println("syntax:\n'java Board'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2");
+	System.out.println("syntax:\n'java Board'--prints the board\n'java Board new'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2");
+	System.out.println("'java Board save filename'--saves game into filename so you can open it up later");
+	System.out.println("'java Board open filename'--opens up the game in filename");
+	
     }
+
+    /* MAIN MAIN MAIN MAIN MAIN */
+
+    public static void main(String[] args){
+	if (args.length == 0){
+	    Board jerry = new Board("dog.txt");
+	    System.out.println(jerry);
+	    System.out.println("'java Board help'--prints help menu");
+	}
+	else if (args.length == 1  && args[0].toLowerCase().equals("new")){
+	    Board jerry = new Board();
+	    jerry.writeFile("dog.txt");
+	    System.out.println(jerry);
+	    System.out.println("\nboard is now set up\ntype 'java Board help' if you need help");
+	}
+	else if (args.length == 1 && args[0].toLowerCase().equals("help")){
+	    printHelp();
+	}
+	else if (args.length == 4){
+	  
+	    setup("dog.txt",args);
+	}
+	  
+	else if (args.length == 2){
+	    try{
+		String filename = args[1];
+		if (args[0].toLowerCase().equals("save")){
+		    saveFile(filename);
+		}
+		if (args[0].toLowerCase().equals("open")){
+		    setup(filename,args);
+		}
+	    }
+	    catch (Exception e){
+		printHelp();
+		e.printStackTrace();
+		System.exit(1);
+	    }
+	}
+	else{
+	    printHelp();
+	}
+    }
+
 }
 
     

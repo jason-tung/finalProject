@@ -59,7 +59,7 @@ public abstract class Piece{
 		makePiece(board, xcor, ycor);//board[ycor][xcor] = new this(xcor, ycor, getColor())
 		int a = getYcor();
 		int b = getXcor();
-		board[a][b] = new Nothing(a,b);
+		board[a][b] = new Nothing(b,a);
 		return true;
 	    }
 	    catch (Exception e){
