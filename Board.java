@@ -41,17 +41,19 @@ public class Board{
 
     public Board(String dog){
 	try{
-	    Scanner in = new Scanner(new File("dog"));
+	    Scanner in = new Scanner(new File(dog));
 	    board = new Piece[8][8];
 	    int y =0;
 	    int x =0;
 	    while (in.hasNext()){
-		    board[y][x] = parse(in.next());
+		    board[x][y] = parse(in.next());
 		    y++;
 		    if (y == 8){
 			y = 0;
+			
 			x++;
 		    }
+		    System.out.println(this);
 		}
 	}
 	catch(Exception e){
@@ -87,6 +89,31 @@ public class Board{
 	return new Nothing(xcor,ycor);
     }
 
+    public void writeFile(String dog){
+	try{
+	    BufferedWriter out  = new BufferedWriter(new FileWriter(dog));
+	    
+	    out.write(this.convert());
+	    
+	    out.close();
+	    
+	}catch(Exception e){
+	    System.out.println("WAT HAPPEN!");
+	    e.printStackTrace();
+	    System.exit(1);
+	}
+    }
+
+    public String convert(){
+	String out = "";
+	for (int i = 0; i < 8; i++){
+	    for (int j = 0; j < 8; j++){
+		out += board[i][j];
+		    out += " ";
+	    }
+	}
+	return out;
+    }
   
 
   public String toString(){
@@ -105,32 +132,47 @@ public class Board{
   }
 
   public static void main(String[] args){
-      
-     Board jerry = new Board();
-     System.out.println(jerry + "\n");
-    // jerry.bMoveTo(0,0,1,0);
-    // jerry.bMoveTo(0,1,2,2);
-    // jerry.bMoveTo(0,2,7,7);
-
-
-    
-     // System.out.println("\n");
-     // Piece jerry.board[0][1] = jerry.board[0][1];
-     // System.out.println(jerry.board[0][1].possibleMoves());
-     // System.out.println(jerry.board[0][1].moveTo(jerry.board, 2, 2));
-     // jerry.bMoveTo(0,1,2,2);
-     // System.out.println(jerry);
-
-    //System.out.println(jerry.board[3][0].getColor());
+      if (args.length == 0){
+	  Board jerry = new Board();
+	  jerry.writeFile("dog.txt");
+	  System.out.println(jerry);
+	  System.out.println("\nboard is now set up\ntype 'java Board help' if you need help");
+      }
+      if (args.length == 1 && args[0].equals("help")){
+	  printHelp();
+      }
+      if (args.length == 4){
+	  try{
+	      Board jerry = new Board("dog.txt");
+	     
+	      if(jerry.board[0][1].moveTo(jerry.board,3,3)){
+		  System.out.println("good move");
+	      }
+	      else{
+		  System.out.println("bad move");
+	      }
+	      jerry.writeFile("dog");
+	  }
+	  catch(Exception e){
+	      System.out.println("--something goofed--");
+	      e.printStackTrace();
+	      System.exit(1);
+	  }
+      }
   }
+	  
 
     public boolean bMoveTo(int ixcor, int iycor, int fxcor, int fycor){
 	boolean x = board[ixcor][iycor].moveTo(board, fxcor, fycor);
-	System.out.println(x);
 	System.out.println(this + "\n");
 	return x;
     }
+
+    public static void printHelp(){
+	System.out.println("this is chess, but it's in the terminal.\nsoon it will be moved to the GUI (i hope...)");
+	System.out.println("syntax:\n'java Board'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2");
+    }
 }
-	
+
     
     

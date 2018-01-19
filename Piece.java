@@ -57,7 +57,9 @@ public abstract class Piece{
 	    try{
 		//System.out.println();
 		makePiece(board, xcor, ycor);//board[ycor][xcor] = new this(xcor, ycor, getColor())
-		board[getYcor()][getXcor()] = new Nothing(getXcor(),getYcor());
+		int a = getYcor();
+		int b = getXcor();
+		board[a][b] = new Nothing(a,b);
 		return true;
 	    }
 	    catch (Exception e){
