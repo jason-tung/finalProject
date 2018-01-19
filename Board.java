@@ -196,9 +196,18 @@ public class Board{
 
     public static void main(String[] args){
 	if (args.length == 0){
-	    Board jerry = new Board("dog.txt");
-	    System.out.println(jerry);
-	    System.out.println("'java Board help'--prints help menu");
+	    try{
+		Board jerry = new Board("dog.txt");
+		System.out.println(jerry);
+	    }
+	    catch (Exception e){
+		Board jerry = new Board();
+		jerry.writeFile("dog.txt");
+		System.out.println(jerry);
+		System.out.println("\nboard is now set up\ntype 'java Board help' if you need help");
+	    }
+		
+	    
 	}
 	else if (args.length == 1  && args[0].toLowerCase().equals("new")){
 	    Board jerry = new Board();
