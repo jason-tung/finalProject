@@ -24,6 +24,14 @@ public class Pawn extends Piece{
     public void makePiece(Piece[][] board, int xcor, int ycor){
         board[ycor][xcor] = new Pawn(xcor, ycor, getColor());
     };
+
+    public boolean isalidMove(int xcor, int ycor){
+	if (getYcor() - ycor == 1 && getXcor == xcor){
+	    return true;
+	}
+	
+	return moveInList(xcor, ycor);
+    }
     
 
     // public boolean goodMove(int xcor, int ycor){

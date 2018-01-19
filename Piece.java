@@ -42,6 +42,10 @@ public abstract class Piece{
 	return possibleMoves;
     }
 
+    public boolean isValidMove(int xcor, int ycor){
+	return true;
+    }
+
     abstract void makePiece(Piece[][] board, int xcor, int ycor);
     
     //abstract  boolean moveTo(Piece[][] board, int xcor, int ycor);
@@ -53,7 +57,7 @@ public abstract class Piece{
 	ArrayList<Move> testy = possibleMoves();
 	int testy2 = testy.indexOf("123");
 	*/
-	if (!board[ycor][xcor].getColor().equals(getColor()) && true/*possibleMoves().indexOf(testMove)!=-1*/){
+	if (!board[ycor][xcor].getColor().equals(getColor()) && isValidMove(xcor, ycor)){
 	    try{
 		//System.out.println();
 		makePiece(board, xcor, ycor);//board[ycor][xcor] = new this(xcor, ycor, getColor())
@@ -73,6 +77,8 @@ public abstract class Piece{
     public void setIcon(ImageIcon x){
 	icon = x;
     }
+
+    
 }
 
 	

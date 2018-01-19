@@ -28,7 +28,14 @@ public class Knight extends Piece{
 
     public void makePiece(Piece[][] board, int xcor, int ycor){
         board[ycor][xcor] = new Knight(xcor, ycor, getColor());
-    };
+    }
+
+    public boolean isValidMove(int xcor, int ycor){
+	if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
+	    return true;
+	}
+	return false;
+    }
     
     
 }
