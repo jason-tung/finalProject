@@ -46,14 +46,15 @@ public class Board{
 	    int y =0;
 	    int x =0;
 	    while (in.hasNext()){
-		    board[x][y] = parse(in.next());
+		String doggy = in.next();
+		board[y][x] = parse(doggy);
+		x++;
+		if (x == 8){
+		    x = 0;
+		    
 		    y++;
-		    if (y == 8){
-			y = 0;
-			
-			x++;
 		    }
-		    System.out.println(this);
+		// System.out.println(doggy + parse(doggy));  
 		}
 	}
 	catch(Exception e){
@@ -65,8 +66,8 @@ public class Board{
 
     public Piece parse(String nxt){
 	String color = "" +  nxt.charAt(0);
-	int xcor = Integer.valueOf(nxt.charAt(3));
-	int ycor = Integer.valueOf(nxt.charAt(nxt.length()-1));
+	int xcor = (nxt.charAt(3) - '0');
+	int ycor = (nxt.charAt(5) - '0');
         char type = nxt.charAt(1);
 	if (type == 'p'){
 	    return new Pawn(xcor, ycor, color);
@@ -138,20 +139,28 @@ public class Board{
 	  System.out.println(jerry);
 	  System.out.println("\nboard is now set up\ntype 'java Board help' if you need help");
       }
-      if (args.length == 1 && args[0].equals("help")){
+      if (args.length == 1 && args[0].toLowerCase().equals("help")){
 	  printHelp();
       }
       if (args.length == 4){
 	  try{
 	      Board jerry = new Board("dog.txt");
+	  
+	      int ixcor = Integer.valueOf(args[0]);
+	      int iycor = Integer.valueOf(args[1]);
+	      int mxcor = Integer.valueOf(args[2]);
+	      int mycor = Integer.valueOf(args[3]);
 	     
-	      if(jerry.board[0][1].moveTo(jerry.board,3,3)){
+	      if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
 		  System.out.println("good move");
 	      }
 	      else{
 		  System.out.println("bad move");
+		  
 	      }
-	      jerry.writeFile("dog");
+	      jerry.writeFile("dog.txt");
+	      System.out.println(jerry);
+        
 	  }
 	  catch(Exception e){
 	      System.out.println("--something goofed--");
