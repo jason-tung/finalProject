@@ -186,6 +186,7 @@ public class Board{
     public static void printHelp(){
 	System.out.println(" - - HELP MENU - - ");
 	System.out.println("this is chess, but it's in the terminal.\nsoon it will be moved to the GUI (i hope...)");
+	System.out.println("please make sure your file actually exists or that youre saving a board that exists");
 	System.out.println("syntax:\n'java Board'--prints the board\n'java Board new'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2");
 	System.out.println("'java Board save filename'--saves game into filename so you can open it up later");
 	System.out.println("'java Board open filename'--opens up the game in filename");
@@ -196,11 +197,11 @@ public class Board{
 
     public static void main(String[] args){
 	if (args.length == 0){
-	    try{
+	    if (new File("dog.txt").exists()){
 		Board jerry = new Board("dog.txt");
 		System.out.println(jerry);
 	    }
-	    catch (Exception e){
+	   else{
 		Board jerry = new Board();
 		jerry.writeFile("dog.txt");
 		System.out.println(jerry);
@@ -218,7 +219,7 @@ public class Board{
 	else if (args.length == 1 && args[0].toLowerCase().equals("help")){
 	    printHelp();
 	}
-	else if (args.length == 4){
+	else if (args.length == 4 && new File("dog.txt").exists()){
 	  
 	    setup("dog.txt",args);
 	}
@@ -226,6 +227,11 @@ public class Board{
 	else if (args.length == 2){
 	    try{
 		String filename = args[1];
+		if (!new File("dog.txt").exists()){
+		    printHelp();
+		    //e.printStackTrace();
+		    System.exit(1);
+		}
 		if (args[0].toLowerCase().equals("save")){
 		    saveFile(filename);
 		}
@@ -236,7 +242,7 @@ public class Board{
 	    }
 	    catch (Exception e){
 		printHelp();
-		e.printStackTrace();
+		//e.printStackTrace();
 		System.exit(1);
 	    }
 	}
