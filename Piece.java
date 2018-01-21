@@ -96,38 +96,46 @@ public abstract class Piece{
 	return !isEmpty(board, xcor, ycor);
     }
 
-    public void addMoves(Piece[][] board){
-	addMoves(4,4);
-    }
+    // public void addMoves(Piece[][] board){
+    // 	addMoves(4,4);
+    // }
 
     public void addMoves(int xcor, int ycor){
 	possibleMoves.add(new Move(xcor,ycor));
     }
 
     // //it didnt let me override in child classes, so i had to implement it all here;
-    // public void addMoves(Piece[][] board){
-    // 	//knight
-    // 	if (this instanceof Knight){
-    // 	    for (int xcor = 0; xcor < 8; xcor++){
-    // 		for (int ycor = 0; ycor < 8; ycor++){
-    // 		    if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
-    // 		        addMoves(xcor, ycor);
-    // 		    }
-    // 		}
-    // 	    }	    
-    // 	}
+    public void addMoves(Piece[][] board){
+	//knight
+	if (this instanceof Knight){
+     	    for (int xcor = 0; xcor < 8; xcor++){
+     		for (int ycor = 0; ycor < 8; ycor++){
+     		    if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5 &&isEmpty(board, xcor, ycor)){
+     		        addMoves(xcor, ycor);
+     		    }
+     		}
+     	    }	    
+     	}
 
-	// // //rook
+	//rook
+	if (this instanceof Rook){
+	    addMoves(board, 1, 0);
+	    addMoves(board, -1, 0);
+	    addMoves(board, 0, 1);
+	    addMoves(board, 0, -1);
+	}
 
-	//else
-    // 	System.out.println(this instanceof Piece);
-    // 	addMoves(5,5);
-    // }
+       
+	else{
+	    System.out.println("adding moves error");
+	    addMoves(5,5);
+	}
+    }
 
     public void addMoves(Piece[][] board, int xmod, int ymod){
-	int tempxcor = xcor;
-	int tempycor = ycor;
-	while (isEmpty(board, tempxcor, tempycor) && (tempxcor != ycor && tempxcor != xcor)){
+	int tempxcor = this.xcor + xmod;
+	int tempycor = this.ycor + ymod;       
+	while (tempxcor < 8 && tempycor < 8 && tempycor >= 0 && tempxcor >= 0 && isEmpty(board, tempxcor, tempycor)){
 	    possibleMoves.add(new Move(tempxcor, tempycor));
 	    tempxcor += xmod;
 	    tempycor += ymod;

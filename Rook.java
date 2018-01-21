@@ -21,10 +21,10 @@ public class Rook extends Piece{
     
     // @Override
     // public void addMoves(Piece[][] board){
-    // 	 addMoves2(board, 1, 0);
-    // 	 addMoves2(board, -1, 0);
-    // 	 addMoves2(board, 1, 0);
-    // 	 addMoves2(board, -1, 0);
+    // 	 addMoves(board, 1, 0);
+    // 	 addMoves(board, -1, 0);
+    // 	 addMoves(board, 1, 0);
+    // 	 addMoves(board, -1, 0);
     // }
     
 }
