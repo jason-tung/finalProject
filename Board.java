@@ -62,7 +62,7 @@ public class Board{
 	}
 	catch(Exception e){
 	    System.out.println("ERROR Board: i think you gave me bad filename("+dog+")");
-	    e.printStackTrace();
+	    
 	    System.exit(1);
 	}
     }
@@ -103,7 +103,7 @@ public class Board{
 	    
 	}catch(Exception e){
 	    System.out.println("WAT HAPPEN!");
-	    e.printStackTrace();
+	    
 	    System.exit(1);
 	}
     }
@@ -141,7 +141,7 @@ public class Board{
 	    Files.copy(new File("dog.txt").toPath(), new File(filename).toPath(),StandardCopyOption.REPLACE_EXISTING);
 	}
 	catch (Exception e){
-	    e.printStackTrace();
+	    
 	    System.exit(1);
 	}
 	
@@ -169,8 +169,7 @@ public class Board{
         
 	}
 	catch(Exception e){
-	    System.out.println("ERROR setup: --I think that you gave me a bad filename ("+filename+")--");
-	    e.printStackTrace();
+	    System.out.println("ERROR setup: bad move or bad filename ("+filename+")");
 	    System.exit(1);
 	}
     }
@@ -229,7 +228,7 @@ public class Board{
 		String filename = args[1];
 		if (!new File("dog.txt").exists()){
 		    printHelp();
-		    //e.printStackTrace();
+		    //
 		    System.exit(1);
 		}
 		if (args[0].toLowerCase().equals("save")){
@@ -242,7 +241,7 @@ public class Board{
 	    }
 	    catch (Exception e){
 		printHelp();
-		//e.printStackTrace();
+		//
 		System.exit(1);
 	    }
 	}

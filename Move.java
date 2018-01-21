@@ -3,6 +3,7 @@ public class Move{
     public int fXcor, fYcor;
 
     public Move(int c, int d){
+	
 	fXcor = c;
 	fYcor = d;
     }

@@ -17,7 +17,11 @@ public class Queen extends Piece{
 
     public void makePiece(Piece[][] board, int xcor, int ycor){
         board[ycor][xcor] = new Queen(xcor, ycor, getColor());
-    };
+    }
+
+    public void addMoves(Piece[][] board){
+	possibleMoves.add(new Move(5,5));
+    }
     
     
 }

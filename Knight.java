@@ -23,7 +23,6 @@ public class Knight extends Piece{
 		}
 	    }
 	}
-	possibleMoves.add(new Move(2,2));
     }
 
     public void makePiece(Piece[][] board, int xcor, int ycor){

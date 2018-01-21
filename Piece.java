@@ -3,8 +3,8 @@ import javax.swing.*;
 
 public abstract class Piece{
 
-    private int xcor;
-    private int ycor;
+    public int xcor;
+    public int ycor;
     private final String color;
     public  ArrayList<Move> possibleMoves;
     public ImageIcon icon;
@@ -36,22 +36,18 @@ public abstract class Piece{
       return "!!@" + getLocation(); // ERROR
   };
 
-    public void addMoves(){}
-    
-    public ArrayList<Move> possibleMoves(){
-	return possibleMoves;
-    }
-
-    public boolean isValidMove(int xcor, int ycor){
-	return true;
-    }
-
     abstract void makePiece(Piece[][] board, int xcor, int ycor);
     
     //abstract  boolean moveTo(Piece[][] board, int xcor, int ycor);
 
     public boolean moveTo(Piece[][] board, int xcor, int ycor){
-	addMoves();
+	try{
+	    board[ycor][xcor].addMoves(board);
+	    System.out.println("possible moves: "+ board[ycor][xcor].possibleMoves);
+	}
+	catch (Exception e){
+	    return false;
+	}
 	Move testMove = new Move(xcor,ycor);
 	/*
 	ArrayList<Move> testy = possibleMoves();
@@ -78,7 +74,43 @@ public abstract class Piece{
 	icon = x;
     }
 
+     public boolean isValidMove(int xcor, int ycor){
+	return moveInList(xcor,ycor);
+    }
+
+    public boolean moveInList(int xcor, int ycor){
+	for (Move move : possibleMoves){
+	    if (move.fXcor == xcor && move.fYcor == ycor){
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    public static boolean isEmpty(Piece[][] board, int xcor, int ycor){
+	    return board[ycor][xcor] instanceof Nothing;
+    }
+
     
+    public static boolean hasPiece(Piece[][] board, int xcor, int ycor){
+	return !isEmpty(board, xcor, ycor);
+    }
+
+    public void addMoves(Piece[][] board){
+	possibleMoves.add(new Move(2,5));
+    }
+
+    public void addMoves(Piece[][] board, int xmod, int ymod){
+	int tempxcor = xcor;
+	int tempycor = ycor;
+	while (isEmpty(board, tempxcor, tempycor) && (tempxcor != ycor && tempxcor != xcor)){
+	    possibleMoves.add(new Move(tempxcor, tempycor));
+	    tempxcor += xmod;
+	    tempycor += ymod;
+	    
+	}
+    }
+	
 }
 
 	

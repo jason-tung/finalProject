@@ -15,8 +15,16 @@ public class Rook extends Piece{
 	return getColor().charAt(0) + "r@" + getLocation();
     }
 
-       public void makePiece(Piece[][] board, int xcor, int ycor){
+    public void makePiece(Piece[][] board, int xcor, int ycor){
         board[ycor][xcor] = new Rook(xcor, ycor, getColor());
-    };
+    }
+    
+    @Override
+     public void addMoves(Piece[][] board){
+	 addMoves(board, 1, 0);
+	 addMoves(board, -1, 0);
+	 addMoves(board, 1, 0);
+	 addMoves(board, -1, 0);
+    }
     
 }

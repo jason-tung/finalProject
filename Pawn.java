@@ -25,14 +25,18 @@ public class Pawn extends Piece{
         board[ycor][xcor] = new Pawn(xcor, ycor, getColor());
     };
 
-    public boolean isalidMove(int xcor, int ycor){
-	if (getYcor() - ycor == 1 && getXcor == xcor){
+    public boolean isValidMove(int xcor, int ycor){
+	if (getYcor() - ycor == 1 && getXcor() == xcor){
 	    return true;
 	}
 	
 	return moveInList(xcor, ycor);
     }
-    
+
+    public void addMoves(Piece[][] board){
+	possibleMoves.add(new Move(5,5));
+    }
+
 
     // public boolean goodMove(int xcor, int ycor){
     // 	if ((!hasMoved) && (xcor == getXcor() && (ycor == getYcor() + 2 || ycor == getYcor() + 1))){
