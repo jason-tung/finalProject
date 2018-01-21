@@ -19,14 +19,14 @@ public class Knight extends Piece{
         board[ycor][xcor] = new Knight(xcor, ycor, getColor());
     }
 
-    public void addMoves(){
-	for (int xcor = 0; xcor < 8; xcor++){
-	    for (int ycor = 0; ycor < 8; ycor++){
-		if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
-		    addMoves(xcor, ycor);
-		}
-	    }
-	}	    
-    }
+    // public void addMoves(){
+    // 	for (int xcor = 0; xcor < 8; xcor++){
+    // 	    for (int ycor = 0; ycor < 8; ycor++){
+    // 		if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
+    // 		    addMoves(xcor, ycor);
+    // 		}
+    // 	    }
+    // 	}	    
+    // }
     
 }

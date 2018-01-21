@@ -159,9 +159,15 @@ public class Board{
 	     
 	    if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
 		System.out.println("!!!!valid move!!!!");
+		jerry.board[mycor][mxcor].addMoves(jerry.board);		
+		System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[mycor][mxcor].possibleMoves);
 	    }
 	    else{
 		System.out.println("!!!!invalid move!!!!");
+		if (jerry.board[iycor][ixcor].possibleMoves.size() == 0){
+		    jerry.board[iycor][ixcor].addMoves(jerry.board);
+		}
+		System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[iycor][ixcor].possibleMoves);
 		  
 	    }
 	    jerry.writeFile("dog.txt");
@@ -187,8 +193,10 @@ public class Board{
 	System.out.println("this is chess, but it's in the terminal.\nsoon it will be moved to the GUI (i hope...)");
 	System.out.println("please make sure your file actually exists or that youre saving a board that exists");
 	System.out.println("syntax:\n'java Board'--prints the board\n'java Board new'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2");
+	System.out.println("'java Board x1 y1'--shows possible moves for x1 y1");
 	System.out.println("'java Board save filename'--saves game into filename so you can open it up later");
 	System.out.println("'java Board open filename'--opens up the game in filename");
+	
 	
     }
 
@@ -223,7 +231,7 @@ public class Board{
 	    setup("dog.txt",args);
 	}
 	  
-	else if (args.length == 2){
+	else if (args.length == 2 && (args[0].equals("open")||args[0].equals("save"))){
 	    try{
 		String filename = args[1];
 		if (!new File("dog.txt").exists()){
@@ -243,6 +251,24 @@ public class Board{
 		printHelp();
 		//
 		System.exit(1);
+	    
+	    }
+	}
+	else if (args.length == 2 && new File("dog.txt").exists()){
+	    Board jerry = new Board("dog.txt");
+
+	    try{
+		int xcor = Integer.valueOf(args[0]);
+		int ycor = Integer.valueOf(args[1]);
+		jerry.board[ycor][xcor].addMoves(jerry.board);
+		System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[ycor][xcor].possibleMoves);
+			    System.out.println(jerry);
+	    }
+	    catch (Exception e){
+		printHelp();
+		//
+		System.exit(1);
+	    
 	    }
 	}
 	else{

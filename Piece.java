@@ -32,6 +32,7 @@ public abstract class Piece{
 	return color;
     }
 
+
     public String toString(){
 	return "!!@" + getLocation(); // ERROR
     }
@@ -43,11 +44,12 @@ public abstract class Piece{
     public boolean moveTo(Piece[][] board, int xcor, int ycor){
 	try{
 	    addMoves(board);
-	    System.out.println("possible moves: "+ possibleMoves);
 	}
 	catch (Exception e){
 	    return false;
 	}
+	
+
 	Move testMove = new Move(xcor,ycor);
 	/*
 	  ArrayList<Move> testy = possibleMoves();
@@ -118,16 +120,28 @@ public abstract class Piece{
      	}
 
 	//rook
-	if (this instanceof Rook){
-	    addMoves(board, 1, 0);
+	else if (this instanceof Rook){
+	    addMoves(board, 1, 0);	    
 	    addMoves(board, -1, 0);
 	    addMoves(board, 0, 1);
 	    addMoves(board, 0, -1);
 	}
 
-       
+	else if (this instanceof Bishop){
+	    addMoves(board, 1, 1);
+	    addMoves(board, 1, -1);
+	    addMoves(board, -1, 1);
+	    addMoves(board, -1, -1);
+	}
+
+
+	//nothing
+	else if (this instanceof Nothing){
+	    
+	}
 	else{
-	    System.out.println("adding moves error");
+	    
+	    System.out.println(this + "adding moves error");
 	    addMoves(5,5);
 	}
     }
@@ -141,6 +155,7 @@ public abstract class Piece{
 	    tempycor += ymod;
 	    
 	}
+	//System.out.println("possible moves: "+ possibleMoves);
     }
 	
 }
