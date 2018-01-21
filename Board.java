@@ -192,7 +192,7 @@ public class Board{
 	System.out.println(" - - HELP MENU - - ");
 	System.out.println("this is chess, but it's in the terminal.\nsoon it will be moved to the GUI (i hope...)");
 	System.out.println("please make sure your file actually exists or that youre saving a board that exists");
-	System.out.println("syntax:\n'java Board'--prints the board\n'java Board new'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2");
+	System.out.println("syntax:\n'java Board'--prints the board\n'java Board new'--sets up the board\n'java Board x1 y1 x2 y2'--moves piece at x1,y1 to x2,y2 and prints the new possible moves");
 	System.out.println("'java Board x1 y1'--shows possible moves for x1 y1");
 	System.out.println("'java Board save filename'--saves game into filename so you can open it up later");
 	System.out.println("'java Board open filename'--opens up the game in filename");

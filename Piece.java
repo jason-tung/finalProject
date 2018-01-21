@@ -5,7 +5,7 @@ public abstract class Piece{
 
     public int xcor;
     public int ycor;
-    private final String color;
+    public String color;
     public  ArrayList<Move> possibleMoves;
     public ImageIcon icon;
 
@@ -121,35 +121,70 @@ public abstract class Piece{
 
 	//rook
 	else if (this instanceof Rook){
-	    addMoves(board, 1, 0);	    
-	    addMoves(board, -1, 0);
-	    addMoves(board, 0, 1);
+	    addMoves(board, -1, 0);	    
+	    addMoves(board, 1, 0);
 	    addMoves(board, 0, -1);
+	    addMoves(board, 0, 1);
 	}
 
+	//bishop
 	else if (this instanceof Bishop){
-	    addMoves(board, 1, 1);
-	    addMoves(board, 1, -1);
-	    addMoves(board, -1, 1);
 	    addMoves(board, -1, -1);
+	    addMoves(board, -1, 1);
+	    addMoves(board, 1, -1);
+	    addMoves(board, 1, 1);
 	}
 
+	//queen
+	else if (this instanceof Queen){
+ 	    addMoves(board, -1, 0);	    
+	    addMoves(board, 1, 0);
+	    addMoves(board, 0, -1);
+	    addMoves(board, 0, 1);
+	    addMoves(board, -1, -1);
+	    addMoves(board, -1, 1);
+	    addMoves(board, 1, -1);
+	    addMoves(board, 1, 1);
+	}
+
+	//king
+	else if (this instanceof King){
+     	    for (int xcor = 0; xcor < 8; xcor++){
+     		for (int ycor = 0; ycor < 8; ycor++){
+     		    if (Math.pow((getXcor() - xcor),2) <= 1 && Math.pow((getYcor() - ycor),2) <= 1 &&isEmpty(board, xcor, ycor) && !(xcor == this.xcor && ycor == this.ycor )){
+			addMoves(xcor, ycor);
+		    }
+		}
+	    }
+	}
+
+	//pawn
+	else if (this instanceof Pawn){
+	    
+	}
 
 	//nothing
 	else if (this instanceof Nothing){
 	    
 	}
+	
 	else{
 	    
-	    System.out.println(this + "adding moves error");
 	    addMoves(5,5);
+	    System.out.println(this + " adding moves error");
 	}
     }
 
     public void addMoves(Piece[][] board, int xmod, int ymod){
 	int tempxcor = this.xcor + xmod;
-	int tempycor = this.ycor + ymod;       
-	while (tempxcor < 8 && tempycor < 8 && tempycor >= 0 && tempxcor >= 0 && isEmpty(board, tempxcor, tempycor)){
+	int tempycor = this.ycor + ymod;
+	boolean firstContact = true;
+	while (tempxcor < 8 && tempycor < 8 && tempycor >= 0 && tempxcor >= 0 && (isEmpty(board, tempxcor, tempycor) || (!(board[tempycor][tempxcor].color.equals(this.color)) && firstContact))){
+	    
+	    if ( !(board[tempycor][tempxcor].color.equals("none") || board[tempycor][tempxcor].color.equals(this.color))){
+		firstContact = false;
+	    }
+	    
 	    possibleMoves.add(new Move(tempxcor, tempycor));
 	    tempxcor += xmod;
 	    tempycor += ymod;
