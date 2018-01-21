@@ -8,13 +8,29 @@ public abstract class Piece{
     public String color;
     public  ArrayList<Move> possibleMoves;
     public ImageIcon icon;
+    public boolean firstMove;
 
     public Piece(int xcor, int ycor, String color){
 	this.xcor = xcor;
 	this.ycor = ycor;
 	this.color = color;
 	this.possibleMoves = new ArrayList<Move>();
+	this.firstMove = true;
     }
+
+    public Piece(int xcor, int ycor, String color, int x){
+	this.xcor = xcor;
+	this.ycor = ycor;
+	this.color = color;
+	this.possibleMoves = new ArrayList<Move>();
+	this.firstMove = false;
+	
+    }
+
+    // public Piece(int xcor, int ycor, String color, int x){
+    //     super(xcor, ycor, String color);
+    // 	this.firstMove = false;
+    // }
 
     public int getXcor(){
 	return xcor;
@@ -160,7 +176,28 @@ public abstract class Piece{
 
 	//pawn
 	else if (this instanceof Pawn){
-	    
+	    int ymod = -1;
+	    if (color.equals("white")){
+		ymod = 1;
+	    }
+	    if (isEmpty(board,xcor,ycor+ymod)){
+		if (ycor + ymod < 8){
+		    addMoves(xcor, ycor+ymod);
+		}
+		if (firstMove && isEmpty(board,xcor,ycor+2 * ymod)){
+		    if (ycor + 2 * ymod < 8){
+			addMoves(xcor, ycor + 2 * ymod);
+		    }
+		}
+	    }
+	    for (int i = -1; i <= 1; i+=2){
+		if (!board[ycor + ymod][xcor + i].color.equals(color)){
+		    if (ycor + ymod < 8 && xcor + i < 8){
+			addMoves(ycor + ymod, xcor + i);
+		    }
+		}
+	    }
+     
 	}
 
 	//nothing
