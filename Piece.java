@@ -17,7 +17,7 @@ public abstract class Piece{
 	this.possibleMoves = new ArrayList<Move>();
 	this.firstMove = true;
     }
-
+    /*
     public Piece(int xcor, int ycor, String color, int x){
 	this.xcor = xcor;
 	this.ycor = ycor;
@@ -25,7 +25,7 @@ public abstract class Piece{
 	this.possibleMoves = new ArrayList<Move>();
 	this.firstMove = false;
 	
-    }
+	}*/
 
     // public Piece(int xcor, int ycor, String color, int x){
     //     super(xcor, ycor, String color);

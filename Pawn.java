@@ -13,9 +13,9 @@ public class Pawn extends Piece{
 
     }
 
-    public Pawn (int xcor, int ycor, String col, int x){
-        super(xcor,ycor,col,x);
-    }
+    // public Pawn (int xcor, int ycor, String col, int x){
+    //     super(xcor,ycor,col,x);
+    // }
 
     public String toString(){
 	return getColor().charAt(0) + "p@" + getLocation();
@@ -23,16 +23,10 @@ public class Pawn extends Piece{
 
 
     public void makePiece(Piece[][] board, int xcor, int ycor){
-        board[ycor][xcor] = new Pawn(xcor, ycor, getColor(), 3);
+        board[ycor][xcor] = new Pawn(xcor, ycor, getColor());
+	board[ycor][xcor].firstMove = false;
     }
 
-    public boolean isValidMove(int xcor, int ycor){
-	if (getYcor() - ycor == 1 && getXcor() == xcor){
-	    return true;
-	}
-	
-	return moveInList(xcor, ycor);
-    }
 
     // public void addMoves(Piece[][] board){
     // 	possibleMoves.add(new Move(5,5));
