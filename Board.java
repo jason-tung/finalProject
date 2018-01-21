@@ -15,8 +15,8 @@ public class Board{
 	    }
 	}
 	for (int i = 0; i < 8; i++){
-	    board[1][i] = new Pawn(i,1,"black");
-	    board[6][i] = new Pawn(i,6,"white");
+	    board[1][i] = new Pawn(i,1,"b");
+	    board[6][i] = new Pawn(i,6,"w");
 	}
 	int[] a = {0,7};
 	for (int ycor: a){

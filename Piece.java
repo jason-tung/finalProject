@@ -15,7 +15,11 @@ public abstract class Piece{
 	this.ycor = ycor;
 	this.color = color;
 	this.possibleMoves = new ArrayList<Move>();
-	this.firstMove = true;
+	this.firstMove = false;
+	if (color.equals("b") && ycor == 1 || color.equals("w") && ycor == 6){
+	    this.firstMove = true;
+	}
+
     }
     /*
     public Piece(int xcor, int ycor, String color, int x){
@@ -176,24 +180,27 @@ public abstract class Piece{
 
 	//pawn
 	else if (this instanceof Pawn){
-	    int ymod = -1;
-	    if (color.equals("white")){
-		ymod = 1;
+	    int ymod = 1;
+	    if (color.equals("w")){
+		ymod = -1;
 	    }
 	    if (isEmpty(board,xcor,ycor+ymod)){
-		if (ycor + ymod < 8){
+		if (ycor + ymod < 8 && ycor + ymod >= 0){
 		    addMoves(xcor, ycor+ymod);
 		}
 		if (firstMove && isEmpty(board,xcor,ycor+2 * ymod)){
-		    if (ycor + 2 * ymod < 8){
+		    if (ycor + 2 * ymod < 8 && ycor + 2 * ymod >= 0){
 			addMoves(xcor, ycor + 2 * ymod);
 		    }
 		}
 	    }
+
 	    for (int i = -1; i <= 1; i+=2){
-		if (!board[ycor + ymod][xcor + i].color.equals(color)){
-		    if (ycor + ymod < 8 && xcor + i < 8){
-			addMoves(ycor + ymod, xcor + i);
+		if (ycor + ymod < 8 && xcor + i < 8 && ycor + ymod >= 0 && xcor + i >= 0){
+		    String otherColor = board[ycor + ymod][xcor + i].color;
+		    if (!otherColor.equals(color) && !otherColor.equals("none")){
+			// System.out.println("xmod " + i + " ymod " + ymod)
+			addMoves(xcor + i,ycor + ymod);
 		    }
 		}
 	    }
