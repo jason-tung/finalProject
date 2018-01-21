@@ -19,9 +19,9 @@ public class King extends Piece{
         board[ycor][xcor] = new King(xcor, ycor, getColor());
     }
 
-    public void addMoves(Piece[][] board){
-	possibleMoves.add(new Move(5,5));
-    }
+    // public void addMoves(Piece[][] board){
+    // 	possibleMoves.add(new Move(5,5));
+    // }
     
     
     

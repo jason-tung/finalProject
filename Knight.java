@@ -15,26 +15,18 @@ public class Knight extends Piece{
 	return getColor().charAt(0) + "n@" + getLocation();
     }
 
-    public void addMoves(){
-	for (int x = 0; x < 8; x++){
-	    for (int y = 0; y < 8; y++){
-		if (getXcor() * getXcor() + getYcor() * getYcor() == 13){
-		    possibleMoves.add(new Move(x,y));
-		}
-	    }
-	}
-    }
-
     public void makePiece(Piece[][] board, int xcor, int ycor){
         board[ycor][xcor] = new Knight(xcor, ycor, getColor());
     }
 
-    public boolean isValidMove(int xcor, int ycor){
-	if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
-	    return true;
-	}
-	return false;
+    public void addMoves(){
+	for (int xcor = 0; xcor < 8; xcor++){
+	    for (int ycor = 0; ycor < 8; ycor++){
+		if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
+		    addMoves(xcor, ycor);
+		}
+	    }
+	}	    
     }
-    
     
 }

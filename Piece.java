@@ -9,32 +9,32 @@ public abstract class Piece{
     public  ArrayList<Move> possibleMoves;
     public ImageIcon icon;
 
-  public Piece(int xcor, int ycor, String color){
-    this.xcor = xcor;
-    this.ycor = ycor;
-    this.color = color;
-    this.possibleMoves = new ArrayList<Move>();
-  }
+    public Piece(int xcor, int ycor, String color){
+	this.xcor = xcor;
+	this.ycor = ycor;
+	this.color = color;
+	this.possibleMoves = new ArrayList<Move>();
+    }
 
-  public int getXcor(){
-    return xcor;
-  }
+    public int getXcor(){
+	return xcor;
+    }
     
-  public int getYcor(){
-    return ycor;
-  }
+    public int getYcor(){
+	return ycor;
+    }
 
-  public String getLocation(){
-    return getXcor() + "." +getYcor();
-  }
+    public String getLocation(){
+	return getXcor() + "." +getYcor();
+    }
     
-  public String getColor(){
-    return color;
-  }
+    public String getColor(){
+	return color;
+    }
 
-  public String toString(){
-      return "!!@" + getLocation(); // ERROR
-  };
+    public String toString(){
+	return "!!@" + getLocation(); // ERROR
+    }
 
     abstract void makePiece(Piece[][] board, int xcor, int ycor);
     
@@ -42,16 +42,16 @@ public abstract class Piece{
 
     public boolean moveTo(Piece[][] board, int xcor, int ycor){
 	try{
-	    board[ycor][xcor].addMoves(board);
-	    System.out.println("possible moves: "+ board[ycor][xcor].possibleMoves);
+	    addMoves(board);
+	    System.out.println("possible moves: "+ possibleMoves);
 	}
 	catch (Exception e){
 	    return false;
 	}
 	Move testMove = new Move(xcor,ycor);
 	/*
-	ArrayList<Move> testy = possibleMoves();
-	int testy2 = testy.indexOf("123");
+	  ArrayList<Move> testy = possibleMoves();
+	  int testy2 = testy.indexOf("123");
 	*/
 	if (!board[ycor][xcor].getColor().equals(getColor()) && isValidMove(xcor, ycor)){
 	    try{
@@ -63,7 +63,7 @@ public abstract class Piece{
 		return true;
 	    }
 	    catch (Exception e){
-		e.printStackTrace();
+		
 		return false;
 	    }
 	}
@@ -74,7 +74,7 @@ public abstract class Piece{
 	icon = x;
     }
 
-     public boolean isValidMove(int xcor, int ycor){
+    public boolean isValidMove(int xcor, int ycor){
 	return moveInList(xcor,ycor);
     }
 
@@ -88,7 +88,7 @@ public abstract class Piece{
     }
 
     public static boolean isEmpty(Piece[][] board, int xcor, int ycor){
-	    return board[ycor][xcor] instanceof Nothing;
+	return board[ycor][xcor] instanceof Nothing;
     }
 
     
@@ -97,8 +97,32 @@ public abstract class Piece{
     }
 
     public void addMoves(Piece[][] board){
-	possibleMoves.add(new Move(2,5));
+	addMoves(4,4);
     }
+
+    public void addMoves(int xcor, int ycor){
+	possibleMoves.add(new Move(xcor,ycor));
+    }
+
+    // //it didnt let me override in child classes, so i had to implement it all here;
+    // public void addMoves(Piece[][] board){
+    // 	//knight
+    // 	if (this instanceof Knight){
+    // 	    for (int xcor = 0; xcor < 8; xcor++){
+    // 		for (int ycor = 0; ycor < 8; ycor++){
+    // 		    if (Math.pow((getXcor() - xcor),2) + Math.pow((getYcor() - ycor),2) == 5){
+    // 		        addMoves(xcor, ycor);
+    // 		    }
+    // 		}
+    // 	    }	    
+    // 	}
+
+	// // //rook
+
+	//else
+    // 	System.out.println(this instanceof Piece);
+    // 	addMoves(5,5);
+    // }
 
     public void addMoves(Piece[][] board, int xmod, int ymod){
 	int tempxcor = xcor;

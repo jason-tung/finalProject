@@ -19,12 +19,12 @@ public class Rook extends Piece{
         board[ycor][xcor] = new Rook(xcor, ycor, getColor());
     }
     
-    @Override
-     public void addMoves(Piece[][] board){
-	 addMoves(board, 1, 0);
-	 addMoves(board, -1, 0);
-	 addMoves(board, 1, 0);
-	 addMoves(board, -1, 0);
-    }
+    // @Override
+    // public void addMoves(Piece[][] board){
+    // 	 addMoves2(board, 1, 0);
+    // 	 addMoves2(board, -1, 0);
+    // 	 addMoves2(board, 1, 0);
+    // 	 addMoves2(board, -1, 0);
+    // }
     
 }

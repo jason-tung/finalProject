@@ -33,9 +33,9 @@ public class Pawn extends Piece{
 	return moveInList(xcor, ycor);
     }
 
-    public void addMoves(Piece[][] board){
-	possibleMoves.add(new Move(5,5));
-    }
+    // public void addMoves(Piece[][] board){
+    // 	possibleMoves.add(new Move(5,5));
+    // }
 
 
     // public boolean goodMove(int xcor, int ycor){
