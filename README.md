@@ -1,102 +1,53 @@
-# B I G   B O Y   G U I   C H E S S
+# Chess
 
-## Team Members                                                   
-Jason Tung                                                     
+## chess printed into the terminal
+move pieces in different ways to capture the enemy king
 
-## Team Name
-Dynamic Duo
+## instructions printed by typing
+'''java Board help'''
 
-## Project Title
-Big Boy GUI Chess
+ - - HELP MENU - - 
+this is chess, but it's in the terminal.
+~~soon it will be moved to the GUI (i hope...)~~
+please make sure your file actually exists or that youre saving a board that exists
+syntax:
+'''java Board'''--prints the board
+'''java Board new'''--sets up the board
+'''java Board x1 y1 x2 y2'''--moves piece at x1,y1 to x2,y2 and prints the new possible moves
+'''java Board x1 y1'''--shows possible moves for x1 y1
+'''java Board save filename'''--saves game into filename so you can open it up later
+'''java Board open filename'''--opens up the game in filename
+'''java Board force x1 y1 x2 y2'''--forces the piece to move, but it's for experimentation (i.e. not a part of the game, only for testing)
 
-## I. Project Idea
- - A turn based strategy based on the a real life game which you may or may not be familiar with -- chess. 
+## key
+each slot printed follows this notation: (c)(p)@x.y
+c is the color (either b for black or w for white)
+p is the piece
+ - p for pawn
+ - r for rook
+ - n for knight
+ - b for bishop
+ - q for queen
+ - k for king
+x is the x-coordinate & y is the y-coordinate
+e.g. wp@0.4 means there is a white pawn at the point (0,4)
 
- - Start with a setup board of chess pieces and play a game of chess with or without the timer. 
+## what i was able to add
+in my limited time, i was able to add:
+ - chesspiece movement
+ - turns
+ - check (not really)
+ - checkmate (not really)
+ - saving games
+ - opening games
+ - sample games (type '''java Board open sample''')
 
- - Players take turns moving pieces until either player is in checkmate.
+## what i dont have
+ - a gui
+ - "checkmate' is really just killing the enemy king
+ - check doesnt limit movement
+ - have to run the program once for each move -- i learned about console reading too late to implement it
+ - special moves (hard to implement because of the way my movement works)
 
- - Each player has 16 pieces: 1 king, 1 queen, 2 rooks, 2 bishops, 2 knights, and 8 pawns.
- - Pieces move in different ways depending on their types.
- - The ultimate goal is to trap the enemy’s king piece such that it is in check and there are no moves it can make without it being captured. 
- - Check: when a king piece is going to be captured next turn if there is no interception, or the king does not move. 
- - Pieces can move and capture other pieces.
- - There is a set of special moves such as en passant, castling, and promotion.
-
-## II. Critical Features
-### 1. Distinct Checkerboard Squares
- - The basis for placement and movement of pieces
-
-### 2. Chess Pieces
- - Movement
- - Capture -- Pieces only capturing opposite color pieces
- - Non-standard movement (en passant, castling, promotion)
- - Appears on the GUI
-
-### 3. Check & Checkmate
- - Figure out if a player is in check or checkmate (The hardest part )
-
-### 4. Turns
- - Each player takes a turn
-
-### 5. Win, Lose, Stalemate
- - Win/Lose is checkmate
- - Stalemate for when the checked player has no legal moves
-
-### 6. GUI Implementation
- - Puts the chess game onto GUI
- 
-## III. To Be Added Later Features
- - Nice looking pieces
- - Selecting a piece will display all possible paths it can take
- - Timer
- - AI (HARD)
- - Animations
- - Move log
-
-## IV. Development stages
-
-### I plan on writing everything in Terminal before moving into GUI
-
- - [x] Make a board
- - [x] ~~Pack square into a package~~
- - [x] ~~Game class which store pieces and their coordinates (probably a hash map or super array)~~ put them into ary
- - [x] Make abstract class chessPiece
- - [x] Write child classes for pieces
- - [x] Setup up board
- - [ ] Discover list of possible moves for x piece **might not be needed**
- - [ ] Write movement & capture
- - [x] Make GUI pieces -- i just need to add an image icon to a jlabel
- - [ ] Write board in GUI
- - [ ] Implement Pieces onto the GUI
- - [ ] Movement on GUI
- - [ ] Write special moves 
- - [ ] Implement into GUI and test
- - [ ] Write,  implement, test check
- - [ ] Write,  implement, test checkmate
- - [ ] Write,  implement, test stalemate
- 
-**MINIMUM FUNCTIONALITY ACHIEVED**
-
- - [ ] Add a timer for turns
- - [ ] Log moves on the side of the GUI
- - [ ] Make pieces look nice
- - [ ] Display possible paths
- - [ ] Add animations
- - [ ] Write a (bad) AI
-
-## What I'm Up To
- - Making tile class
- - Writing chesspiece abstract class
- - Writing Chesspiece child classes
-   - including list of possible moves
- - Organizing Packages
- - Making board
- - Putting pieces on board
- - Board setup
- - **CURRENT** Movement -- making it work in two directions
- - Adding pictures for the GUI
-
-## To Work On
- - Preset scenarios
- - GUI Implementation
+## summary
+ i have the majority of the BASIC, BASIC chess game done. 
