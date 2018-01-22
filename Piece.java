@@ -76,6 +76,7 @@ public abstract class Piece{
 	catch (Exception e){
 	    return false;
 	}
+
 	
 
 	Move testMove = new Move(xcor,ycor);
@@ -100,6 +101,15 @@ public abstract class Piece{
 	return false; 
     
     }
+
+    public void forceMove(Piece[][] board, int xcor, int ycor){
+	makePiece(board, xcor, ycor);//board[ycor][xcor] = new this(xcor, ycor, getColor())
+	int a = getYcor();
+	int b = getXcor();
+	board[a][b] = new Nothing(b,a);
+    }
+	
+    
     public void setIcon(ImageIcon x){
 	icon = x;
     }

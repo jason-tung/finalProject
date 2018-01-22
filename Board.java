@@ -280,6 +280,8 @@ public class Board{
 	return x;
     }
 
+    
+
     public static void printHelp(){
 	System.out.println(" - - HELP MENU - - ");
 	System.out.println("this is chess, but it's in the terminal.\nsoon it will be moved to the GUI (i hope...)");
@@ -288,6 +290,7 @@ public class Board{
 	System.out.println("'java Board x1 y1'--shows possible moves for x1 y1");
 	System.out.println("'java Board save filename'--saves game into filename so you can open it up later");
 	System.out.println("'java Board open filename'--opens up the game in filename");
+	System.out.println("'java Board x1 y1 x2 y2 force'--forces the piece to move, but it's for experimentation (i.e. not a part of the game, only for testing & throws a bunch of errors)");
 	
 	
     }
@@ -295,6 +298,19 @@ public class Board{
     /* MAIN MAIN MAIN MAIN MAIN */
 
     public static void main(String[] args){
+
+	if (args.length == 5){
+	    Board jerry = new Board("dog.txt");
+	    int ixcor = Integer.valueOf(args[0]);
+	    int iycor = Integer.valueOf(args[1]);
+	    int mxcor = Integer.valueOf(args[2]);
+	    int mycor = Integer.valueOf(args[3]);
+	    jerry.board[iycor][ixcor].forceMove(jerry.board,mxcor, mycor);
+	    jerry.writeFile("dog.txt");
+	    System.out.println(jerry);
+	}
+
+	
 	if (args.length == 0){
 	    if (new File("dog.txt").exists()){
 		Board jerry = new Board("dog.txt");
