@@ -2,14 +2,14 @@ import java.io.*;
 import java.util.*;
 import java.nio.file.*;
 
-
-
 public class Board{
     public Piece[][] board;
     public String turn;
+    public String checked;
 
     public Board(){
 	turn = "w";
+	checked = "n";
 	board = new Piece[8][8];
 	for (int i = 0; i < 8; i++){
 	    for (int j = 0; j < 8; j++){
@@ -53,6 +53,9 @@ public class Board{
 	    int x =0;
 	    if (in.hasNext()){
 		turn = in.next();
+	    }
+	    if (in.hasNext()){
+		checked = in.next();
 	    }
 	    while (in.hasNext()){
 		String doggy = in.next();
@@ -115,7 +118,7 @@ public class Board{
     }
 
     public String convert(){
-	String out = turn + " ";
+	String out = turn + " " + checked + " " ;
 	for (int i = 0; i < 8; i++){
 	    for (int j = 0; j < 8; j++){
 		out += board[i][j];
@@ -152,6 +155,28 @@ public class Board{
 	}
 	
     }
+
+    public boolean updateCheck(int x, int y){
+	Piece from = board[y][x];
+	Piece to = new Nothing(99,99);
+	for (int xcor =0; xcor < 8; xcor++){
+	    for (int ycor = 0; ycor<8;ycor++){
+		Piece target = board[ycor][xcor];
+		if (target instanceof King && (!target.color.equals(from.color))){
+		    checked = target.color;
+		    to = target;
+		}
+	    }
+	}
+	if (to.xcor != 99){
+	    checked = to.color;
+	    return true;
+	}
+	
+	return false;
+    }
+	
+	
     
       
     public static void setup(String filename, String[] args){
@@ -168,6 +193,14 @@ public class Board{
 		    System.out.println("!!!!valid move!!!!");		
 		    jerry.board[mycor][mxcor].addMoves(jerry.board);		
 		    System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[mycor][mxcor].possibleMoves);
+		    jerry.updateCheck(mxcor,mycor);
+		    if (!jerry.checked.equals("n")){
+			String cp = "WHITE";
+			if (jerry.checked.equals("b")){
+			    cp = "BLACK";
+			}
+			System.out.println("PLAYER IN CHECK");
+		    }
 		    if (jerry.turn.equals("w")){
 			    System.out.println("it is now black's turn");
 			    jerry.turn = "b";
@@ -302,6 +335,8 @@ public class Board{
 	    printHelp();
 	}
     }
+
+    
 
 }
 

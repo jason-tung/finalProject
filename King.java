@@ -3,7 +3,10 @@ import javax.swing.*;
 
 public class King extends Piece{
 
+    //public boolean checked;
+
     public King(int xcor, int ycor, String col){
+	//checked = false;
 	super(xcor,ycor, col);
 		setIcon(new ImageIcon(".pieceImage/wk.png"));
 	if (col.equals("black")){
