@@ -7,19 +7,17 @@ move pieces in different ways to capture the enemy king
 ```java Board help```
 
  - - HELP MENU - - 
-this is chess, but it's in the terminal.
-
-~~soon it will be moved to the GUI (i hope...)~~
-
-please make sure your file actually exists or that youre saving a board that exists 
-syntax: 
-```java Board```--prints the board 
-```java Board new```--sets up the board 
-```java Board x1 y1 x2 y2```--moves piece at x1,y1 to x2,y2 and prints the new possible moves 
-```java Board x1 y1```--shows possible moves for x1 y1 
-```java Board save filename```--saves game into filename so you can open it up later 
-```java Board open filename```--opens up the game in filename 
-```java Board force x1 y1 x2 y2```--forces the piece to move, but it's for experimentation (i.e. not a part of the game, only for testing) 
+this is chess, but it's in the terminal.  
+~~soon it will be moved to the GUI (i hope...)~~  
+please make sure your file actually exists or that youre saving a board that exists    
+syntax:  
+```java Board```--prints the board  
+```java Board new```--sets up the board  
+```java Board x1 y1 x2 y2```--moves piece at x1,y1 to x2,y2 and prints the new possible moves  
+```java Board x1 y1```--shows possible moves for x1 y1  
+```java Board save filename```--saves game into filename so you can open it up later  
+```java Board open filename```--opens up the game in filename  
+```java Board force x1 y1 x2 y2```--forces the piece to move, but it's for experimentation (i.e. not a part of the game, only for testing)  
 
 ## key
 each slot printed follows this notation: (c)(p)@x.y
