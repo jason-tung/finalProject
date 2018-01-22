@@ -6,7 +6,7 @@ move pieces in different ways to capture the enemy king
 ## instructions printed by typing
 ```java Board help```
 
- - - HELP MENU - - 
+### HELP MENU 
 this is chess, but it's in the terminal.  
 ~~soon it will be moved to the GUI (i hope...)~~  
 please make sure your file actually exists or that youre saving a board that exists    
