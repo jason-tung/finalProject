@@ -175,6 +175,36 @@ public class Board{
 	
 	return false;
     }
+
+    //checkmate algo is very hard, and i have little time, so i declare the winner the one with the king
+    public void checkmate(){
+	boolean anyWK = false;
+	boolean anyBK = false;
+	
+	for (int xcor =0; xcor < 8; xcor++){
+	    for (int ycor = 0; ycor<8;ycor++){
+		Piece target = board[ycor][xcor];
+		if (target instanceof King){
+		    if (target.color.equals("w")){
+			anyWK = true;
+		    }
+		    if (target.color.equals("b")){
+			anyBK = true;
+		    }
+		}
+	    }
+	}
+
+	if (!anyWK){
+	     System.out.println("\n\033[0;32m gg: black wins\033[0m\n");
+	    System.exit(0);
+	}
+	if (!anyBK){
+	    System.out.println("\n\033[0;32m gg: white wins\033[0m\n");
+	    System.exit(0);
+	}
+    }
+	    
 	
 	
     
@@ -187,6 +217,7 @@ public class Board{
 	    int iycor = Integer.valueOf(args[1]);
 	    int mxcor = Integer.valueOf(args[2]);
 	    int mycor = Integer.valueOf(args[3]);
+	    jerry.checkmate();
 	    if (jerry.board[iycor][ixcor].color.equals(jerry.turn)){
 		if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
 		
@@ -232,6 +263,7 @@ public class Board{
 		}
 	    jerry.writeFile("dog.txt");
 	    System.out.println(jerry);
+	    jerry.checkmate();
         
 	}
 	catch(Exception e){
