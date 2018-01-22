@@ -3,7 +3,8 @@
 ## chess printed into the terminal
 move pieces in different ways to capture the enemy king
 
-## instructions printed by typing
+## instructions
+instructions printed by typing  
 ```java Board help```
 
 ### HELP MENU 
