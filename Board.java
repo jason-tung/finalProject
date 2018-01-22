@@ -6,8 +6,10 @@ import java.nio.file.*;
 
 public class Board{
     public Piece[][] board;
+    public String turn;
 
     public Board(){
+	turn = "w";
 	board = new Piece[8][8];
 	for (int i = 0; i < 8; i++){
 	    for (int j = 0; j < 8; j++){
@@ -44,10 +46,14 @@ public class Board{
 
     public Board(String dog){
 	try{
+	    
 	    Scanner in = new Scanner(new File(dog));
 	    board = new Piece[8][8];
 	    int y =0;
 	    int x =0;
+	    if (in.hasNext()){
+		turn = in.next();
+	    }
 	    while (in.hasNext()){
 		String doggy = in.next();
 		board[y][x] = parse(doggy);
@@ -109,7 +115,7 @@ public class Board{
     }
 
     public String convert(){
-	String out = "";
+	String out = turn + " ";
 	for (int i = 0; i < 8; i++){
 	    for (int j = 0; j < 8; j++){
 		out += board[i][j];
@@ -156,13 +162,26 @@ public class Board{
 	    int iycor = Integer.valueOf(args[1]);
 	    int mxcor = Integer.valueOf(args[2]);
 	    int mycor = Integer.valueOf(args[3]);
-	     
-	    if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
-		System.out.println("!!!!valid move!!!!");
-		jerry.board[mycor][mxcor].addMoves(jerry.board);		
-		System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[mycor][mxcor].possibleMoves);
-	    }
-	    else{
+	    if (jerry.board[iycor][ixcor].color.equals(jerry.turn)){
+		if(jerry.board[iycor][ixcor].moveTo(jerry.board,mxcor,mycor)){
+		
+		    System.out.println("!!!!valid move!!!!");		
+		    jerry.board[mycor][mxcor].addMoves(jerry.board);		
+		    System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[mycor][mxcor].possibleMoves);
+		    if (jerry.turn.equals("w")){
+			    System.out.println("it is now black's turn");
+			    jerry.turn = "b";
+		    }
+		    else if (jerry.turn.equals("b")){
+			    System.out.println("it is now white's turn");
+			    jerry.turn = "w";
+		    }
+		    else{
+			System.out.println("something broke");
+		    }
+		    
+		}
+		else{
 		System.out.println("!!!!invalid move!!!!");
 		if (jerry.board[iycor][ixcor].possibleMoves.size() == 0){
 		    jerry.board[iycor][ixcor].addMoves(jerry.board);
@@ -170,6 +189,14 @@ public class Board{
 		System.out.println("POSSIBLE MOVES FOR THIS PIECE: " + jerry.board[iycor][ixcor].possibleMoves);
 		  
 	    }
+		
+	    }
+	    
+	    else{
+		    String turn = "white";
+		    if (jerry.turn.equals("b")) turn = "black";
+		    System.out.println("it is " + turn + "'s turn");
+		}
 	    jerry.writeFile("dog.txt");
 	    System.out.println(jerry);
         

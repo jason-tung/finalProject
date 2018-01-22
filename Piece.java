@@ -16,7 +16,14 @@ public abstract class Piece{
 	this.color = color;
 	this.possibleMoves = new ArrayList<Move>();
 	this.firstMove = false;
-	if (color.equals("b") && ycor == 1 || color.equals("w") && ycor == 6){
+	if ((color.equals("b") && ycor == 1 || color.equals("w") && ycor == 6)&& this instanceof Pawn){
+	    this.firstMove = true;
+	}
+	//these two arent strictly true, but this is the closest i can get to castling
+	if (this instanceof King && ((color.equals("b")&&ycor==0&&xcor==4)||(color.equals("w")&&ycor==7&&xcor==4))){
+	    this.firstMove = true;
+	}
+	if (this instanceof Rook && ((color.equals("b")&&ycor==0&&(xcor==0 || xcor == 7))||(color.equals("w")&&ycor==7&&(xcor==0 || xcor == 7)))){
 	    this.firstMove = true;
 	}
 
@@ -62,6 +69,7 @@ public abstract class Piece{
     //abstract  boolean moveTo(Piece[][] board, int xcor, int ycor);
 
     public boolean moveTo(Piece[][] board, int xcor, int ycor){
+	
 	try{
 	    addMoves(board);
 	}
